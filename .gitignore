@@ -1,0 +1,8 @@
+# virtualenv
+bin/
+include/
+lib/
+local/
+
+# Python compiled files
+*.pyc
