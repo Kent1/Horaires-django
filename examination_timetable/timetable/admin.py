@@ -1,3 +1,67 @@
 from django.contrib import admin
+from django.contrib.auth.models import Group
+from django.contrib.auth.admin import UserAdmin
 
-# Register your models here.
+from models import *
+from forms import ExamForm, RoomForm, UserChangeForm, UserCreationForm
+
+admin.site.register(Timetable)
+
+
+class ExamAdmin(admin.ModelAdmin):
+    form = ExamForm
+    list_display = ('name',)
+    fields = ['name']
+
+admin.site.register(Exam)
+
+
+class RoomAdmin(admin.ModelAdmin):
+    form = RoomForm
+    list_display = ('name', 'faculty', 'capacity', 'room_type')
+
+admin.site.register(Room, RoomAdmin)
+
+admin.site.register(Faculty)
+admin.site.register(RoomType)
+
+
+class MyUserAdmin(UserAdmin):
+    # The forms to add and change user instances
+    form = UserChangeForm
+    add_form = UserCreationForm
+
+    # The fields to be used in displaying the User model.
+    # These override the definitions on the base UserAdmin
+    # that reference specific fields on auth.User.
+    list_display = ('matricule', 'first_name', 'last_name' ,'is_admin')
+    list_filter = ('is_admin',)
+    fieldsets = (
+        (None, {'fields': ('matricule', 'password')}),
+        ('Personal info', {'fields': ('first_name', 'last_name')}),
+        ('Permissions', {'fields': ('is_admin',)}),
+    )
+    # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
+    # overrides get_fieldsets to use this attribute when creating a user.
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': (
+                'matricule',
+                'password1',
+                'password2',
+                'first_name',
+                'last_name'
+            )}
+        ),
+    )
+    search_fields = ('matricule',)
+    ordering = ('matricule',)
+    filter_horizontal = ()
+
+# Now register the new UserAdmin...
+admin.site.register(Professor, MyUserAdmin)
+admin.site.register(Student, MyUserAdmin)
+# ... and, since we're not using Django's built-in permissions,
+# unregister the Group model from admin.
+admin.site.unregister(Group)
