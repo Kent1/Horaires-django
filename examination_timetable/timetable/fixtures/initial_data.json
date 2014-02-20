@@ -1,0 +1,514 @@
+[
+    {
+        "pk": 1,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Quentin",
+            "last_name": "Loos",
+            "is_active": true,
+            "matricule": 80086,
+            "is_superuser": true,
+            "last_login": "2014-02-20T07:48:46.025Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": true,
+            "password": "pbkdf2_sha256$12000$2jTzSdeDXduU$uDv2ujJTEK7mjGyZNbsgMJdXZ/1AFHYXFN4dpIm/yis=",
+            "email": "",
+            "date_joined": "2014-02-20T07:48:35.722Z"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Thomas",
+            "last_name": "Brihaye",
+            "is_active": true,
+            "matricule": 501458,
+            "is_superuser": false,
+            "last_login": "2014-02-20T07:49:07.461Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$6h0zW4YAqbne$sH3xzmeELCoM7VajGYdeMd2KOAC9xl+2OzFoFqyD7OE=",
+            "email": "",
+            "date_joined": "2014-02-20T07:49:07.461Z"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Bjorn",
+            "last_name": "Maes",
+            "is_active": true,
+            "matricule": 530788,
+            "is_superuser": false,
+            "last_login": "2014-02-20T07:51:55.992Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$juGIExlKSHCq$I9kFi6tf+SwU62TyN35RfNNCK38lJg3m0nRauAyyviQ=",
+            "email": "",
+            "date_joined": "2014-02-20T07:51:55.992Z"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Hadrien",
+            "last_name": "M\u00e9lot",
+            "is_active": true,
+            "matricule": 501409,
+            "is_superuser": false,
+            "last_login": "2014-02-20T07:52:21.754Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$6KRRjCySsMn3$89MilhPXtlgxmVx0ZwpvUjaGwlacUSLnSThxf0sTyCY=",
+            "email": "",
+            "date_joined": "2014-02-20T07:52:21.754Z"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "St\u00e9phanie",
+            "last_name": "Bridoux",
+            "is_active": true,
+            "matricule": 501235,
+            "is_superuser": false,
+            "last_login": "2014-02-20T07:53:57.079Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$kLYd1gZU9J58$JDwIyjZf9jUym3xlyytaDLQRrI82SuSV0a5JUWs4Cx8=",
+            "email": "",
+            "date_joined": "2014-02-20T07:53:57.079Z"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Christian",
+            "last_name": "Michaux",
+            "is_active": true,
+            "matricule": 500721,
+            "is_superuser": false,
+            "last_login": "2014-02-20T07:56:27.956Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$CQORwNwwpVEu$Jeu8WlEc7JLOx47XgI4Iu3P43ZVUSU1MvZ4725QJaQU=",
+            "email": "",
+            "date_joined": "2014-02-20T07:56:27.956Z"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "V\u00e9ronique",
+            "last_name": "Bruy\u00e8re",
+            "is_active": true,
+            "matricule": 500724,
+            "is_superuser": false,
+            "last_login": "2014-02-20T07:57:30.819Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$KVLpkGmGPgAB$6diEjXxHhtTDF4W2I0+VbssG1a24VWfUPjhFBJCh92U=",
+            "email": "",
+            "date_joined": "2014-02-20T07:57:30.819Z"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Olivier",
+            "last_name": "Delgrange",
+            "is_active": true,
+            "matricule": 500284,
+            "is_superuser": false,
+            "last_login": "2014-02-20T07:58:40.861Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$kMtEZgOPrOKX$HxUqWfDyMyhPGOuVnF50RIXAJLvbqbWcx5kQSMzMFA8=",
+            "email": "",
+            "date_joined": "2014-02-20T07:58:40.861Z"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Claire",
+            "last_name": "Dupont",
+            "is_active": true,
+            "matricule": 503083,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:00:08.581Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$sp0Ph27LqiFe$89fZY7zmHRzcV8Kqk6QnuyLlvqqVweYwYm/Ifxv4MnY=",
+            "email": "",
+            "date_joined": "2014-02-20T08:00:08.581Z"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Jef",
+            "last_name": "Wijsen",
+            "is_active": true,
+            "matricule": 501239,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:01:16.200Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$cgHiKp1fsEUc$UX0wMkPXEMFevaPiekT5OI7+ampsmBFPGVUe+vQRqcU=",
+            "email": "",
+            "date_joined": "2014-02-20T08:01:16.200Z"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Alain",
+            "last_name": "Buys",
+            "is_active": true,
+            "matricule": 500303,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:03:55.381Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$SMVCaNB67QcM$K2xx1hcESHcKVxQSOk0/PLd6rrvDGi+z2Z5glvQu+aI=",
+            "email": "",
+            "date_joined": "2014-02-20T08:03:55.381Z"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Tom",
+            "last_name": "Mens",
+            "is_active": true,
+            "matricule": 503120,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:04:47.874Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$gaWdNtpeLU4K$9XpwYaRKQjcJZPtf9flHbxMP0tAIzwezWeEQLBu0AQY=",
+            "email": "",
+            "date_joined": "2014-02-20T08:04:47.874Z"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Nicolas",
+            "last_name": "Gillis",
+            "is_active": true,
+            "matricule": 531809,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:05:18.973Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "",
+            "email": "",
+            "date_joined": "2014-02-20T08:05:18.973Z"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Gauvain",
+            "last_name": "Devillez",
+            "is_active": true,
+            "matricule": 531817,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:06:22.865Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "",
+            "email": "",
+            "date_joined": "2014-02-20T08:06:22.865Z"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Thierry",
+            "last_name": "Dutoit",
+            "is_active": true,
+            "matricule": 530164,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:06:58.105Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "",
+            "email": "",
+            "date_joined": "2014-02-20T08:06:58.105Z"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Jo\u00ebl",
+            "last_name": "De Coninck",
+            "is_active": true,
+            "matricule": 500214,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:08:31.205Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$aOjcxwLKcqUL$ydgFl0b93abOQPkKfAi7+w36FjF1jBrardro3r/Sdyo=",
+            "email": "",
+            "date_joined": "2014-02-20T08:08:31.205Z"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Pierre",
+            "last_name": "Manneback",
+            "is_active": true,
+            "matricule": 530054,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:10:11.550Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$5VbCyDw70ox7$MI/fml9GLUo+mHyA+sN9Fs7SZIWkyQeVORZyo9OGt30=",
+            "email": "",
+            "date_joined": "2014-02-20T08:10:11.550Z"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Christiane",
+            "last_name": "Bughin",
+            "is_active": true,
+            "matricule": 501116,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:12:40.499Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$QapKUpsBd1zR$lKtFPkUKNKMIdme3uVg5xLpabPX/bLQ9MX3dam9wQtk=",
+            "email": "",
+            "date_joined": "2014-02-20T08:12:40.499Z"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Bruno",
+            "last_name": "Quoitin",
+            "is_active": true,
+            "matricule": 530438,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:12:56.753Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$ah4IZslXFH9l$I3wGkaBPE6kTJ/FquDR/R0MKKvUOagalaoLgLUMCfpQ=",
+            "email": "",
+            "date_joined": "2014-02-20T08:12:56.753Z"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "timetable.myuser",
+        "fields": {
+            "first_name": "Marc",
+            "last_name": "Labie",
+            "is_active": true,
+            "matricule": 501112,
+            "is_superuser": false,
+            "last_login": "2014-02-20T08:13:12.870Z",
+            "groups": [],
+            "user_permissions": [],
+            "is_admin": false,
+            "password": "pbkdf2_sha256$12000$gNdK7vupvOGt$QSyMKR3xHxHK598lcRHzvdvRd8x6gNMp0nxnEnd782k=",
+            "email": "",
+            "date_joined": "2014-02-20T08:13:12.870Z"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 3,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 4,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 5,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 6,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 7,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 8,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 9,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 10,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 11,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 12,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 13,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 14,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 15,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 16,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 17,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 18,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 19,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    },
+    {
+        "pk": 20,
+        "model": "timetable.professor",
+        "fields": {
+            "user_permissions": [],
+            "groups": []
+        }
+    }
+]
