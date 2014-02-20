@@ -13,7 +13,7 @@ class ExamForm(forms.ModelForm):
             'faculty': 'Faculty which organizes the exam.',
             'room_type': 'Choose the correct room type for the exam',
             'professor': 'Which professor gives this course ?',
-            'students' : '',
+            'students': '',
         }
 
 
@@ -27,6 +27,7 @@ class RoomForm(forms.ModelForm):
             'capacity': 'What is the number of seatings in the room ?',
             'room_type': 'Choose what is the type of the room.',
         }
+
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
