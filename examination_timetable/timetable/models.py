@@ -23,8 +23,8 @@ class CustomUserManager(BaseUserManager):
 class MyUser(AbstractBaseUser, PermissionsMixin):
     matricule = models.IntegerField(unique=True)
 
-    first_name = models.CharField(max_length=30, blank=True)
-    last_name  = models.CharField(max_length=30, blank=True)
+    first_name = models.CharField(max_length=30)
+    last_name  = models.CharField(max_length=30)
     email      = models.EmailField(blank=True)
 
     is_admin = models.BooleanField(
@@ -63,12 +63,10 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
 
 
 class Professor(MyUser):
-    #user = models.OneToOneField(settings.AUTH_USER_MODEL)
     pass
 
 
 class Student(MyUser):
-    #user = models.OneToOneField(settings.AUTH_USER_MODEL)
     pass
 
 
@@ -101,6 +99,7 @@ class Exam(models.Model):
     faculty        = models.OneToOneField(Faculty)
     room_type      = models.OneToOneField(RoomType)
     professor      = models.ForeignKey(Professor)
+    students       = models.ManyToManyField(Student)
     room           = models.OneToOneField(Room)
     timeslot       = models.IntegerField()
     availabilities = models.IntegerField()

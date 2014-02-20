@@ -13,6 +13,7 @@ class ExamForm(forms.ModelForm):
             'faculty': 'Faculty which organizes the exam.',
             'room_type': 'Choose the correct room type for the exam',
             'professor': 'Which professor gives this course ?',
+            'students' : '',
         }
 
 

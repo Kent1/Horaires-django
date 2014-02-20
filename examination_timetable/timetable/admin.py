@@ -7,13 +7,23 @@ from forms import ExamForm, RoomForm, UserChangeForm, UserCreationForm
 
 admin.site.register(Timetable)
 
+admin.site.register(Faculty)
+admin.site.register(RoomType)
+
 
 class ExamAdmin(admin.ModelAdmin):
     form = ExamForm
-    list_display = ('name',)
-    fields = ['name']
+    list_display = ('name', 'faculty', 'professor')
+    #fields = ['name', 'faculty', 'room_type', 'professor', 'students']
+    fieldsets = (
+        (None, {'fields': ('name', 'faculty')}),
+        ('Participants', {'fields': ('professor', 'students')}),
+        ('Schedule', {'fields': ('timeslot', 'room')}),
+        ('Availabilities', {'fields': ('availabilities',)}),
+        ('Dependencies', {'fields': ('dependencies',)}),
+    )
 
-admin.site.register(Exam)
+admin.site.register(Exam, ExamAdmin)
 
 
 class RoomAdmin(admin.ModelAdmin):
@@ -21,9 +31,6 @@ class RoomAdmin(admin.ModelAdmin):
     list_display = ('name', 'faculty', 'capacity', 'room_type')
 
 admin.site.register(Room, RoomAdmin)
-
-admin.site.register(Faculty)
-admin.site.register(RoomType)
 
 
 class MyUserAdmin(UserAdmin):
