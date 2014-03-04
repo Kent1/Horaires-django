@@ -6,3 +6,6 @@ local/
 
 # Python compiled files
 *.pyc
+
+# SQLite3 DB
+*.sqlite3

@@ -1,0 +1,63 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="{% static "css/fullcalendar/fullcalendar.css" %}" rel="stylesheet" />
+    <link href="{% static "css/fullcalendar/fullcalendar.print.css" %}" rel="stylesheet" media="print" />
+    <title>Horaire pour {{ id }}</title>
+
+    <script src="{% static "lib/jquery.min.js" %}"></script>
+    <script src="{% static "lib/jquery-ui.custom.min.js" %}"></script>
+    <script src="{% static "css/fullcalendar/fullcalendar.min.js" %}"></script>
+    <script>
+
+    $(document).ready(function() {
+
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar({
+            theme: false,
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek'
+            },
+            editable: false,
+            events: [
+                {
+                    title: 'Lunch',
+                    start: new Date(y, m, d, 12, 0),
+                    end: new Date(y, m, d, 14, 0),
+                    allDay: false
+                }
+            ]
+        });
+    });
+
+    </script>
+<style>
+
+    body {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 13px;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        }
+
+    #calendar {
+        width: 900px;
+        margin: 0 auto;
+        }
+
+</style>
+</head>
+<body>
+<h1>Horaire pour {{ id }}</h1>
+<div id='calendar'></div>
+</body>
+</html>

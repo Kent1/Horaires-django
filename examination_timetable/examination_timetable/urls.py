@@ -8,5 +8,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'examination_timetable.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^student/(?P<student_id>\d{6})/$', 'timetable.views.student'),
+    url(r'^professor/(?P<professor_id>\d{6})/$', 'timetable.views.professor'),
     url(r'^admin/', include(admin.site.urls)),
 )
