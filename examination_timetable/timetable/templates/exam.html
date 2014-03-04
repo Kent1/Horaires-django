@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ exam.name }}</title>
+  </head>
+
+
+  <body>
+    <h1>{{ exam.name }}</h1>
+    <p>Professor : <strong>{{ exam.professor }}</strong></p>
+    <p>
+        Faculty : <strong>{{ exam.faculty }}</strong><br />
+        Room needed : {{ exam.room_type }}<br />
+        Room assigned : {{ exam.room }}<br/>
+        Timeslot assigned : <strong>{{ exam.timeslot}}</strong>
+    </p>
+    <p>Conflicts : {{exam.conflicts }}
+    </p>
+    <p>Students ({{ exam.students.all|length }}) :
+        <ul>
+            {% for student in exam.students.all %}
+            <li>{{ student }}</li>
+            {% endfor %}
+        </ul>
+    <p>
+  </body>
+</html>
