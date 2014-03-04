@@ -111,14 +111,17 @@ class Room(models.Model):
 
 class Exam(models.Model):
     name         = models.CharField(max_length=100)
-    faculty      = models.OneToOneField(Faculty)
-    room_type    = models.OneToOneField(RoomType)
+    faculty      = models.ForeignKey(Faculty)
+    room_type    = models.ForeignKey(RoomType)
     professor    = models.ForeignKey(Professor)
     students     = models.ManyToManyField(Student)
     room         = models.OneToOneField(Room, null=True)
     timeslot     = models.IntegerField(null=True)
     conflicts    = models.IntegerField(null=True)
     dependencies = models.ForeignKey('self', blank=True, null=True)
+
+    def __unicode__(self):
+        return self.name
 
 
 class Timetable(models.Model):

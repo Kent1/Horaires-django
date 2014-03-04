@@ -78,7 +78,7 @@ class StudentAdmin(UserAdmin):
     list_display = ('matricule', 'first_name', 'last_name')
     list_filter = ('is_admin',)
     fieldsets = (
-        (None, {'fields': ('matricule',)}),
+        (None, {'fields': ('matricule', 'password')}),
         ('Personal info', {'fields': ('first_name', 'last_name')}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
@@ -88,8 +88,8 @@ class StudentAdmin(UserAdmin):
             'classes': ('wide',),
             'fields': (
                 'matricule',
-                # 'password1',
-                # 'password2',
+                'password1',
+                'password2',
                 'first_name',
                 'last_name'
             )}
