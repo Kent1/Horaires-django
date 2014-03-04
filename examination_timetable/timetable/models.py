@@ -22,7 +22,7 @@ class CustomUserManager(BaseUserManager):
 
 
 class MyUser(AbstractBaseUser, PermissionsMixin):
-    matricule = models.IntegerField(unique=True)
+    matricule = models.IntegerField(unique=True, primary_key=True)
 
     first_name = models.CharField(max_length=30)
     last_name  = models.CharField(max_length=30)
@@ -60,15 +60,26 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         return self.is_admin
 
     def __unicode__(self):
-        return '%s (%d)' % (self.last_name, self.matricule)
+        return '%s (%d)' % (self.get_full_name(), self.matricule)
 
 
 class Professor(MyUser):
     pass
 
 
+class Unavailability(models.Model):
+    class Meta:
+        verbose_name_plural = 'Unavailabities'
+
+    professor = models.ForeignKey(Professor)
+    date      = models.DateField()
+    matin     = models.BooleanField()
+
+
 class Student(MyUser):
-    pass
+    def __init__(self, *args, **kwargs):
+        super(MyUser, self).__init__(*args, **kwargs)
+        self.is_active = False
 
 
 class Faculty(models.Model):
@@ -90,25 +101,28 @@ class RoomType(models.Model):
 
 class Room(models.Model):
     name      = models.CharField(max_length=100)
-    faculty   = models.OneToOneField(Faculty)
+    faculty   = models.ForeignKey(Faculty)
     capacity  = models.IntegerField()
-    room_type = models.OneToOneField(RoomType)
+    room_type = models.ForeignKey(RoomType)
+
+    def __unicode__(self):
+        return self.name
 
 
 class Exam(models.Model):
-    name           = models.CharField(max_length=100)
-    faculty        = models.OneToOneField(Faculty)
-    room_type      = models.OneToOneField(RoomType)
-    professor      = models.ForeignKey(Professor)
-    students       = models.ManyToManyField(Student)
-    room           = models.OneToOneField(Room)
-    timeslot       = models.IntegerField()
-    availabilities = models.IntegerField()
-    conflicts      = models.IntegerField()
-    dependencies   = models.ForeignKey('self')
+    name         = models.CharField(max_length=100)
+    faculty      = models.OneToOneField(Faculty)
+    room_type    = models.OneToOneField(RoomType)
+    professor    = models.ForeignKey(Professor)
+    students     = models.ManyToManyField(Student)
+    room         = models.OneToOneField(Room, null=True)
+    timeslot     = models.IntegerField(null=True)
+    conflicts    = models.IntegerField(null=True)
+    dependencies = models.ForeignKey('self', blank=True, null=True)
 
 
 class Timetable(models.Model):
-    timeslots = models.IntegerField()
-    exams     = models.ManyToManyField(Exam)
-    rooms     = models.ManyToManyField(Room)
+    start = models.DateField()
+    end   = models.DateField()
+    exams = models.ManyToManyField(Exam)
+    rooms = models.ManyToManyField(Room)

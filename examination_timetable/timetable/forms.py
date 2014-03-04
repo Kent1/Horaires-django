@@ -1,10 +1,11 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from models import Exam, Room, MyUser
+from models import Exam, Room, MyUser, Unavailability
 
 
 class ExamForm(forms.ModelForm):
+    forms.BooleanField()
 
     class Meta:
         model = Exam
@@ -39,11 +40,20 @@ class UserCreationForm(forms.ModelForm):
         model = MyUser
         fields = ('matricule', 'first_name', 'last_name')
 
+    def __init__(self, *args, **kwargs):
+        super(UserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['password1'].required = False
+        self.fields['password2'].required = False
+        # If one field gets autocompleted but not the other, our 'neither
+        # password or both password' validation will be triggered.
+        self.fields['password1'].widget.attrs['autocomplete'] = 'off'
+        self.fields['password2'].widget.attrs['autocomplete'] = 'off'
+
     def clean_password2(self):
         # Check that the two password entries match
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
+        if password1 != password2:
             raise forms.ValidationError("Passwords don't match")
         return password2
 
@@ -67,8 +77,15 @@ class UserChangeForm(forms.ModelForm):
         model = MyUser
         fields = ['matricule', 'password', 'is_active', 'is_admin']
 
-    def clean_password(self):
-        # Regardless of what the user provides, return the initial value.
-        # This is done here, rather than on the field, because the
-        # field does not have access to the initial value
-        return self.initial["password"]
+
+class UnavailabilityForm(forms.ModelForm):
+    CHOICES=[
+        ('matin','Matin'),
+        ('midi','Apres-midi')
+    ]
+
+    ampm = forms.ChoiceField(label='AM/PM', choices=CHOICES, initial='matin', widget=forms.RadioSelect())
+
+    class Meta:
+        model = Unavailability
+        fields = ['professor', 'date', 'ampm']
