@@ -10,5 +10,6 @@ urlpatterns = patterns('',
 
     url(r'^student/(?P<student_id>\d{6})/$', 'timetable.views.student'),
     url(r'^professor/(?P<professor_id>\d{6})/$', 'timetable.views.professor'),
+    url(r'^exam/(?P<exam_id>\d+)/$', 'timetable.views.exam'),
     url(r'^admin/', include(admin.site.urls)),
 )

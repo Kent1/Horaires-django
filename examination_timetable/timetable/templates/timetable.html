@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <link href="{% static "css/fullcalendar/fullcalendar.css" %}" rel="stylesheet" />
     <link href="{% static "css/fullcalendar/fullcalendar.print.css" %}" rel="stylesheet" media="print" />
-    <title>Horaire pour {{ id }}</title>
+    <title>Horaire pour {{ first_name }} {{ last_name }}</title>
 
     <script src="{% static "lib/jquery.min.js" %}"></script>
     <script src="{% static "lib/jquery-ui.custom.min.js" %}"></script>
@@ -57,7 +57,7 @@
 </style>
 </head>
 <body>
-<h1>Horaire pour {{ id }}</h1>
+<h1>Horaire pour {{ first_name }} {{ last_name }}</h1>
 <div id='calendar'></div>
 </body>
 </html>
