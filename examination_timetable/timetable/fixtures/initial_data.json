@@ -3785,6 +3785,136 @@
         "pk": 4
     },
     {
+        "pk": 1,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 250,
+            "room_type": 1,
+            "name": "NiGa Curie"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 34,
+            "room_type": 3,
+            "name": "NiGa. Escher"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 350,
+            "room_type": 1,
+            "name": "NiGa. Gutenberg"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 40,
+            "room_type": 3,
+            "name": "NiGa. Pascal"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 108,
+            "room_type": 2,
+            "name": "NiGa. Plisnier"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 36,
+            "room_type": 3,
+            "name": "NiGa. Turing"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 450,
+            "room_type": 1,
+            "name": "NiGa. VanGogh"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 51,
+            "room_type": 2,
+            "name": "NiP. 0A07"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 51,
+            "room_type": 2,
+            "name": "NiP. 0A11"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 54,
+            "room_type": 2,
+            "name": "NiP. 3C09"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 25,
+            "room_type": 2,
+            "name": "NiP. 3E10"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 25,
+            "room_type": 2,
+            "name": "NiP. 3E11"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 1,
+            "capacity": 35,
+            "room_type": 2,
+            "name": "NiP. 3E20"
+        }
+    },
+    {
         "fields": {
             "conflicts": null,
             "dependencies": null,

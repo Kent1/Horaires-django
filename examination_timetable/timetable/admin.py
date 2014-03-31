@@ -3,7 +3,13 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 
 from models import *
-from forms import ExamForm, RoomForm, UserChangeForm, UserCreationForm, UnavailabilityForm
+from forms import (
+    ExamForm,
+    RoomForm,
+    UserChangeForm,
+    UserCreationForm,
+    UnavailabilityForm
+    )
 
 admin.site.register(Timetable)
 
@@ -88,8 +94,8 @@ class StudentAdmin(UserAdmin):
             'classes': ('wide',),
             'fields': (
                 'matricule',
-                'password1',
-                'password2',
+                # 'password1',
+                # 'password2',
                 'first_name',
                 'last_name'
             )}
