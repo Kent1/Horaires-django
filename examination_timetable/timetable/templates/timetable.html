@@ -29,12 +29,14 @@
             },
             editable: false,
             events: [
+            {% for exam in exams %}
                 {
-                    title: 'Lunch',
-                    start: new Date(y, m, d, 12, 0),
-                    end: new Date(y, m, d, 14, 0),
+                    title: "{{ exam.name }}",
+                    start: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_start }}, {{ exam.m_start }}),
+                    end: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_end }}, {{ exam.m_end }}),
                     allDay: false
-                }
+                },
+            {% endfor %}
             ]
         });
     });

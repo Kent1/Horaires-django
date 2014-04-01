@@ -11,5 +11,7 @@ urlpatterns = patterns('',
     url(r'^student/(?P<student_id>\d{6})/$', 'timetable.views.student'),
     url(r'^professor/(?P<professor_id>\d{6})/$', 'timetable.views.professor'),
     url(r'^exam/(?P<exam_id>\d+)/$', 'timetable.views.exam'),
+    url(r'^exams$', 'timetable.views.exams'),
+    url(r'^room/(?P<room_id>\d+)$', 'timetable.views.room'),
     url(r'^admin/', include(admin.site.urls)),
 )

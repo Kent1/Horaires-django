@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Liste des examens</title>
+
+    </head>
+<body>
+<h1>Liste des examens</h1>
+{% for exam in exams %}
+	<h2>{{ exam.name }}</h2>
+	<p>Dispensé par <a href="professor/{{ exam.professor.pk }}">{{ exam.professor.first_name }} {{ exam.professor.last_name }}</a><br />
+	Hour : {{ exam.h_start }}h{{ exam.m_start }} (timeslot {{ exam.timeslot }})<br />
+	Room : <a href="room/{{ exam.room.pk }}">{{ exam.room.name }}</a><br />
+	</p>
+	<p><a href="exam/{{ exam.pk }}">Détails</a>
+{% endfor %}
+</body>
+</html>

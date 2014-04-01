@@ -8,19 +8,24 @@
 
   <body>
     <h1>{{ exam.name }}</h1>
-    <p>Professor : <strong>{{ exam.professor }}</strong></p>
+    <p>Professor : <strong><a href="/professor/{{exam.professor.pk}}">{{ exam.professor }}</a></strong></p>
     <p>
         Faculty : <strong>{{ exam.faculty }}</strong><br />
         Room needed : {{ exam.room_type }}<br />
-        Room assigned : {{ exam.room }}<br/>
+        Room assigned : <a href="/room/{{ exam.room.pk }}">{{ exam.room }}</a><br/>
         Timeslot assigned : <strong>{{ exam.timeslot}}</strong>
     </p>
-    <p>Conflicts : {{exam.conflicts }}
+    <p>
+    {% if exam.dependencies == None %}
+    No dependency
+    {% else %}
+    Dependencies : {{ exam.dependencies }}
+    {% endif %}
     </p>
     <p>Students ({{ exam.students.all|length }}) :
         <ul>
             {% for student in exam.students.all %}
-            <li>{{ student }}</li>
+            <li><a href="/student/{{ student.pk }}">{{ student }}</a></li>
             {% endfor %}
         </ul>
     <p>
