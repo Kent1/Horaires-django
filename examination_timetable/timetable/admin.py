@@ -11,8 +11,6 @@ from forms import (
     UnavailabilityForm
     )
 
-admin.site.register(Timetable)
-
 admin.site.register(Faculty)
 admin.site.register(RoomType)
 
@@ -111,6 +109,19 @@ admin.site.register(Professor, ProfessorAdmin)
 
 class UnavailabilityAdmin(admin.ModelAdmin):
     form = UnavailabilityForm
+
+
+def make_schedule(modeladmin, request, queryset):
+    for timetable in queryset:
+        timetable.schedule()
+    queryset.update()
+make_schedule.short_description = "Schedule the selected timetable"
+
+
+class TimetableAdmin(admin.ModelAdmin):
+    actions = [make_schedule]
+
+admin.site.register(Timetable, TimetableAdmin)
 
 admin.site.register(Unavailability, UnavailabilityAdmin)
 admin.site.register(Student, StudentAdmin)
