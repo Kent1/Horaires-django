@@ -3791,7 +3791,7 @@
             "faculty": 1,
             "capacity": 250,
             "room_type": 1,
-            "name": "NiGa Curie"
+            "name": "NiGa. Curie"
         }
     },
     {
@@ -3916,7 +3916,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Math\u00e9matiques pour l'info I",
@@ -4003,7 +4002,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Math\u00e9matiques \u00e9l\u00e9mentaires",
@@ -4090,7 +4088,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Physique g\u00e9n\u00e9ral",
@@ -4177,7 +4174,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Programmation & algorithmique I",
@@ -4264,7 +4260,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Syst\u00e8mes d'exploitation (\u00c9crit)",
@@ -4301,7 +4296,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Base de donn\u00e9es I",
@@ -4338,7 +4332,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": 6,
             "faculty": 1,
             "name": "Base de donn\u00e9es I (SQL)",
@@ -4375,7 +4368,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Anglais",
@@ -4412,7 +4404,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Structure de donn\u00e9es I",
@@ -4449,7 +4440,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "\u00c9conomie politique",
@@ -4486,7 +4476,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "G\u00e9nie logiciel",
@@ -4523,7 +4512,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Optimisation",
@@ -4560,7 +4548,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Syst\u00e8mes d'exploitation (Oral)",
@@ -4597,7 +4584,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Traitement du signal",
@@ -4619,7 +4605,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Structure de donn\u00e9es III",
@@ -4641,7 +4626,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Proba et th\u00e9orie des erreurs",
@@ -4663,7 +4647,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Informatique temps r\u00e9el",
@@ -4685,7 +4668,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Programmation d\u00e9clarative",
@@ -4707,7 +4689,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Introduction \u00e0 la comptabilit\u00e9",
@@ -4729,7 +4710,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Intelligence Artificielle",
@@ -4751,7 +4731,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Calculabilit\u00e9 & Complexit\u00e9",
@@ -4781,7 +4760,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "Management",
@@ -4811,7 +4789,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "R\u00e9seaux II",
@@ -4841,7 +4818,6 @@
     },
     {
         "fields": {
-            "conflicts": null,
             "dependencies": null,
             "faculty": 1,
             "name": "S\u00e9curit\u00e9",

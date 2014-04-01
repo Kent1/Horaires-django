@@ -4,6 +4,8 @@ from django.contrib.auth.models import (
     )
 from django.utils import timezone
 
+import examtimetable
+
 
 class CustomUserManager(BaseUserManager):
 
@@ -108,6 +110,10 @@ class Room(models.Model):
     def __unicode__(self):
         return self.name
 
+    def to_room(self):
+        return examtimetable.Room(self.pk, self.name, self.faculty.pk,
+                                  self.capacity, self.room_type.pk)
+
 
 class Exam(models.Model):
     name         = models.CharField(max_length=100)
@@ -115,10 +121,21 @@ class Exam(models.Model):
     room_type    = models.ForeignKey(RoomType)
     professor    = models.ForeignKey(Professor)
     students     = models.ManyToManyField(Student)
-    room         = models.OneToOneField(Room, null=True)
+    room         = models.ForeignKey(Room, null=True)
     timeslot     = models.IntegerField(null=True)
-    conflicts    = models.IntegerField(null=True)
     dependencies = models.ForeignKey('self', blank=True, null=True)
+
+    def to_exam(self):
+        return examtimetable.Exam(self.pk, self.name, self.faculty.pk,
+                                  self.professor.pk, self.room_type.pk,
+                                  [std.pk for std in self.students.all()])
+
+    def from_exam(self, exam):
+        if exam.id != self.pk:
+            raise Exception("incorrect exam id !")
+        self.room = Room.objects.get(id=exam.room.id)
+        self.timeslot = exam.timeslot
+        self.save()
 
     def __unicode__(self):
         return self.name
@@ -129,3 +146,37 @@ class Timetable(models.Model):
     end   = models.DateField()
     exams = models.ManyToManyField(Exam)
     rooms = models.ManyToManyField(Room)
+
+    def to_timetable(self):
+        delta = self.end - self.start
+        timeslots = delta.days * 2
+        exams = {exam.pk: exam.to_exam() for exam in self.exams.all()}
+
+        # Availabilities
+        for exam in exams.values():
+            availabilities = [1] * timeslots
+            professor = exam.professor
+            unavailabilities = Unavailability.objects.all().filter(professor=professor)
+
+            for unavailability in unavailabilities:
+                timeslot = (unavailability.date - self.start).days * 2
+                timeslot += 0 if unavailability.matin else 1
+                availabilities[timeslot] = 0
+
+            exam.availabilities = availabilities
+
+        rooms = {room.pk: room.to_room() for room in self.rooms.all()}
+        # 2 timeslots per day
+        return examtimetable.Timetable(timeslots, exams, rooms)
+
+    def from_timetable(self, timetable):
+        for exam in self.exams.all():
+            exam.from_exam(timetable.exams[exam.pk])
+
+        # for room in self.rooms.all():
+        #     room.from_room(timetable.rooms[room.pk])
+
+    def schedule(self):
+        timetable = self.to_timetable()
+        timetable.schedule()
+        self.from_timetable(timetable)
