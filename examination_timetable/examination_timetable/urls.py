@@ -13,5 +13,6 @@ urlpatterns = patterns('',
     url(r'^exam/(?P<exam_id>\d+)/$', 'timetable.views.exam'),
     url(r'^exams$', 'timetable.views.exams'),
     url(r'^room/(?P<room_id>\d+)$', 'timetable.views.room'),
+    url(r'^$', 'timetable.views.index'),
     url(r'^admin/', include(admin.site.urls)),
 )

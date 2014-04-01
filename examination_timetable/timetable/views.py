@@ -79,6 +79,19 @@ def room(request, room_id):
                                     'exams' : my_exam
                                 })
 
+def index(request):
+    rooms = Room.objects.all()
+    professors = Professor.objects.all()
+    students = Student.objects.all()
+    exams = Exam.objects.all()
+    return render_to_response('index.html',
+                                {
+                                    'rooms' : rooms,
+                                    'students' : students,
+                                    'professors' : professors,
+                                    'exams' : exams
+                                })
+
 def add_hours_to_exam(exam, start):
     exam.date = start + datetime.timedelta(days=(exam.timeslot/2))
     time = exam.date.timetuple()

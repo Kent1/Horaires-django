@@ -5360,9 +5360,9 @@ function DayEventRenderer() {
 				"</span>";
 		}
 		html +=
-			"<span class='fc-event-title'>" +
+			"<a href='/exam/" + event.exam_id + "' class='fc-event-title'>" +
 			htmlEscape(event.title || '') +
-			"</span>" +
+			"</a>" +
 			"</div>";
 		if (segment.isEnd && isEventResizable(event)) {
 			html +=

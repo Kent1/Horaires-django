@@ -10,7 +10,7 @@
 
     <script src="{% static "lib/jquery.min.js" %}"></script>
     <script src="{% static "lib/jquery-ui.custom.min.js" %}"></script>
-    <script src="{% static "css/fullcalendar/fullcalendar.min.js" %}"></script>
+    <script src="{% static "css/fullcalendar/fullcalendar.js" %}"></script>
     <script>
 
     $(document).ready(function() {
@@ -31,6 +31,7 @@
             events: [
             {% for exam in exams %}
                 {
+                    exam_id : {{ exam.pk }},
                     title: "{{ exam.name }}",
                     start: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_start }}, {{ exam.m_start }}),
                     end: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_end }}, {{ exam.m_end }}),
