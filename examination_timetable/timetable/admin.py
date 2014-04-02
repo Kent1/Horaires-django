@@ -133,7 +133,10 @@ def reset_schedule(modeladmin, request, queryset):
     messages.success(request, 'All exams of selected timetables have been reset correctly.')
 
 def reset_make_schedule(modeladmin, request, queryset):
-    reset_schedule(modeladmin, request, queryset)
+    for timetable in queryset:
+        timetable.exams.all().update(room=None)
+        timetable.exams.all().update(timeslot=None)
+
     make_schedule(modeladmin, request, queryset)
 
 class TimetableAdmin(admin.ModelAdmin):
