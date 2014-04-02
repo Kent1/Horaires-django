@@ -8,7 +8,8 @@ from forms import (
     RoomForm,
     UserChangeForm,
     UserCreationForm,
-    UnavailabilityForm
+    UnavailabilityForm,
+    TimetableForm
     )
 
 admin.site.register(Faculty)
@@ -119,6 +120,7 @@ make_schedule.short_description = "Schedule the selected timetable"
 
 
 class TimetableAdmin(admin.ModelAdmin):
+    form = TimetableForm
     actions = [make_schedule]
 
 admin.site.register(Timetable, TimetableAdmin)

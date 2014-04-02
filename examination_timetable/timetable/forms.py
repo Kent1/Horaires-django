@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from models import Exam, Room, MyUser, Unavailability
+from models import Exam, Room, MyUser, Unavailability, Timetable
 
 
 class ExamForm(forms.ModelForm):
@@ -85,13 +85,34 @@ class UserChangeForm(forms.ModelForm):
 
 
 class UnavailabilityForm(forms.ModelForm):
-    CHOICES=[
-        ('matin','Matin'),
-        ('midi','Apres-midi')
+    CHOICES = [
+        ('morning', 'Morning'),
+        ('afternoon', 'Afternoon')
     ]
 
-    ampm = forms.ChoiceField(label='AM/PM', choices=CHOICES, initial='matin', widget=forms.RadioSelect())
+    ampm = forms.ChoiceField(label='AM/PM', choices=CHOICES,
+                             initial='morning', widget=forms.RadioSelect())
 
     class Meta:
         model = Unavailability
         fields = ['professor', 'date', 'ampm']
+
+
+class TimetableForm(forms.ModelForm):
+
+    class Meta:
+        model = Timetable
+
+    def clean_start(self):
+        start = self.cleaned_data['start']
+        if start.weekday() == 5 or start.weekday() == 6:
+            raise forms.ValidationError(
+                "Do you really start exam session a weekend ?")
+        return start
+
+    def clean_end(self):
+        end = self.cleaned_data['end']
+        if end.weekday() == 5 or end.weekday() == 6:
+            raise forms.ValidationError(
+                "Do you really end exam session a weekend ?")
+        return end
