@@ -152,7 +152,12 @@ class Timetable(models.Model):
 
     def to_timetable(self):
         delta = self.end - self.start
-        timeslots = delta.days * 2
+
+        # We only select the working days
+        number_of_we = ((delta.days + 1) + self.start.weekday()) / 7
+        timeslots = (delta.days + 1) * 2 - number_of_we * 4
+        timeslots = timeslots if timeslots > 0 else 0
+
         exams = {exam.pk: exam.to_exam() for exam in self.exams.all()}
 
         # Availabilities
