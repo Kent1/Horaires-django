@@ -123,17 +123,15 @@ class Exam(models.Model):
     students     = models.ManyToManyField(Student)
     room         = models.ForeignKey(Room, null=True)
     timeslot     = models.IntegerField(null=True)
-    dependencies = models.ForeignKey('self', blank=True, null=True)
+    dependencies = models.ManyToManyField('self', blank=True, null=True)
 
     def to_exam(self):
-        if self.dependencies:
-            deps = [self.dependencies.id]
-        else:
-            deps = None
-        return examtimetable.Exam(self.pk, self.name, self.faculty.pk,
-                                  self.professor.pk, self.room_type.pk,
-                                  [std.pk for std in self.students.all()],
-                                  dependencies=deps)
+        return examtimetable.Exam(
+            self.pk, self.name, self.faculty.pk,
+            self.professor.pk, self.room_type.pk,
+            [std.pk for std in self.students.all()],
+            dependencies=[dep.pk for dep in self.dependencies.all()]
+        )
 
     def from_exam(self, exam):
         if exam.id != self.pk:

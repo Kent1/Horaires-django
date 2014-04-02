@@ -58,7 +58,7 @@
             "last_name": "Loos",
             "is_active": true,
             "is_superuser": true,
-            "last_login": "2014-04-01T12:44:03.598Z",
+            "last_login": "2014-04-02T07:41:42.494Z",
             "groups": [],
             "user_permissions": [],
             "is_admin": true,
@@ -3994,7 +3994,7 @@
             ],
             "professor": 501458,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "Math\u00e9matiques pour l'info I"
@@ -4080,7 +4080,7 @@
             ],
             "professor": 501235,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "Math\u00e9matiques \u00e9l\u00e9mentaires"
@@ -4166,7 +4166,7 @@
             ],
             "professor": 530788,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "Physique g\u00e9n\u00e9ral"
@@ -4252,7 +4252,7 @@
             ],
             "professor": 501409,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "Programmation & algorithmique I"
@@ -4288,7 +4288,7 @@
             ],
             "professor": 500284,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Syst\u00e8mes d'exploitation (\u00c9crit)"
@@ -4324,7 +4324,7 @@
             ],
             "professor": 501239,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Base de donn\u00e9es I"
@@ -4360,7 +4360,7 @@
             ],
             "professor": 500303,
             "faculty": 1,
-            "dependencies": 6,
+            "dependencies": [6],
             "timeslot": null,
             "room_type": 2,
             "name": "Base de donn\u00e9es I (SQL)"
@@ -4396,7 +4396,7 @@
             ],
             "professor": 531817,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "Anglais"
@@ -4432,7 +4432,7 @@
             ],
             "professor": 500724,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Structure de donn\u00e9es I"
@@ -4468,7 +4468,7 @@
             ],
             "professor": 503083,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "\u00c9conomie politique"
@@ -4504,7 +4504,7 @@
             ],
             "professor": 503120,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "G\u00e9nie logiciel"
@@ -4540,7 +4540,7 @@
             ],
             "professor": 531809,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Optimisation"
@@ -4576,7 +4576,7 @@
             ],
             "professor": 500284,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Syst\u00e8mes d'exploitation (Oral)"
@@ -4597,7 +4597,7 @@
             ],
             "professor": 530164,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Traitement du signal"
@@ -4618,7 +4618,7 @@
             ],
             "professor": 500724,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Structure de donn\u00e9es III"
@@ -4639,7 +4639,7 @@
             ],
             "professor": 500214,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Proba et th\u00e9orie des erreurs"
@@ -4660,7 +4660,7 @@
             ],
             "professor": 530054,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 3,
             "name": "Informatique temps r\u00e9el"
@@ -4681,7 +4681,7 @@
             ],
             "professor": 503120,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Programmation d\u00e9clarative"
@@ -4702,7 +4702,7 @@
             ],
             "professor": 501116,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "Introduction \u00e0 la comptabilit\u00e9"
@@ -4723,7 +4723,7 @@
             ],
             "professor": 501409,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Intelligence Artificielle"
@@ -4752,7 +4752,7 @@
             ],
             "professor": 500724,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "Calculabilit\u00e9 & Complexit\u00e9"
@@ -4781,7 +4781,7 @@
             ],
             "professor": 501112,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 1,
             "name": "Management"
@@ -4810,7 +4810,7 @@
             ],
             "professor": 530438,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "R\u00e9seaux II"
@@ -4839,7 +4839,7 @@
             ],
             "professor": 500303,
             "faculty": 1,
-            "dependencies": null,
+            "dependencies": [],
             "timeslot": null,
             "room_type": 2,
             "name": "S\u00e9curit\u00e9"
