@@ -24,7 +24,7 @@ def student(request, student_id):
         students = exam.students.all()
         for stud in students:
             if stud.pk == student.pk:
-                add_hours_to_exam(exam, timetable.start)
+                convert_timeslot_to_date(exam, timetable)
                 my_exam.append(exam)
 
     return render_to_response('timetable.html',
@@ -100,7 +100,7 @@ def professor(request, professor_id):
     exams = Exam.objects.all()
     for exam in exams:
         if exam.professor.pk == professor.pk:
-            add_hours_to_exam(exam, timetable.start)
+            convert_timeslot_to_date(exam, timetable)
             my_exam.append(exam)
     return render_to_response('timetable.html',
                                 {'id' : professor_id,
@@ -121,7 +121,7 @@ def exams(request):
     timetable = timetable[0]
     exams = Exam.objects.all()
     for exam in exams:
-        add_hours_to_exam(exam, timetable.start)
+        convert_timeslot_to_date(exam, timetable)
     return render_to_response('exams.html',
                                 {
                                     'exams' : exams,
@@ -136,7 +136,7 @@ def room(request, room_id):
     exams = Exam.objects.all()
     for exam in exams:
         if exam.room.pk == room.pk:
-            add_hours_to_exam(exam, timetable.start)
+            convert_timeslot_to_date(exam, timetable)
             my_exam.append(exam)
     return render_to_response('timetable.html',
                                 {
@@ -168,8 +168,17 @@ def index(request):
                                     'exams' : exams
                                 })
 
-def add_hours_to_exam(exam, start):
-    exam.date = start + datetime.timedelta(days=(exam.timeslot/2))
+def get_day_delta(timetable, timeslot):
+
+    delta = timetable.start.weekday() + timeslot/2
+    n_weekend = 0
+    while delta > 6:
+        delta -= 6
+        n_weekend += 1
+    return timeslot/2 + n_weekend*timetable.get_n_weekend_day()
+
+def convert_timeslot_to_date(exam, timetable):
+    exam.date = timetable.start + datetime.timedelta(days=(get_day_delta(timetable, exam.timeslot)))
     time = exam.date.timetuple()
     exam.month = time.tm_mon - 1
     exam.day = time.tm_mday
