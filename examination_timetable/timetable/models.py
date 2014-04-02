@@ -161,8 +161,7 @@ class Timetable(models.Model):
 
     def to_timetable(self):
         # We only select the working days
-        number_of_we = self.get_number_of_we()
-        timeslots    = self.get_timeslots()
+        timeslots = self.get_timeslots()
 
         exams = {exam.pk: exam.to_exam() for exam in self.exams.all()}
 
