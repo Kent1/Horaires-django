@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 
@@ -108,14 +108,37 @@ class UnavailabilityAdmin(admin.ModelAdmin):
 
 def make_schedule(modeladmin, request, queryset):
     for timetable in queryset:
-        timetable.schedule()
+        status = timetable.schedule()
+
+        if status != -1:
+            messages.success(request, 'Timetable has been scheduled successfully.')
+            if status == 1:
+                messages.warning(request, 'ILS terminates on threshold condition.')
+            elif status == 2:
+                messages.warning(request, 'ILS terminates on time condition.')
+            elif status == 3:
+                messages.warning(request, 'ILS terminates on not enough improvement condition.')
+            elif status == 4:
+                messages.warning(request, 'ILS terminates caused by a non improvable solution.')
+        else:
+            messages.error(request, 'Timetable has no feasible schedule.')
+            messages.warning(request, 'Graph Color has not been able to find a solution.')
+
     queryset.update()
-make_schedule.short_description = "Schedule the selected timetable"
+
+def reset_schedule(modeladmin, request, queryset):
+    for timetable in queryset:
+        timetable.reset()
+    queryset.update()
+    messages.success(request, 'All exams of selected timetables have been reset correctly.')
 
 
 class TimetableAdmin(admin.ModelAdmin):
     form = forms.TimetableForm
-    actions = [make_schedule]
+    actions = [make_schedule, reset_schedule]
+
+make_schedule.short_description  = "Schedule the selected timetable(s)"
+reset_schedule.short_description = "Reset schedule informations for the selected timetable(s)"
 
 admin.site.register(models.Timetable, TimetableAdmin)
 

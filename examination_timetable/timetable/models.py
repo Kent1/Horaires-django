@@ -187,5 +187,12 @@ class Timetable(models.Model):
 
     def schedule(self):
         timetable = self.to_timetable()
-        timetable.schedule()
-        self.from_timetable(timetable)
+        status = timetable.schedule()
+        if status != -1:
+            self.from_timetable(timetable)
+        return status
+
+    def reset(self):
+        for exam in self.exams.all():
+            exam.room = None
+            exam.timeslot = None
