@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }} list</title>
+  </head>
+
+
+  <body>
+        <h2>{{ title }} list</h2>
+    <ul>
+    {% for element in list %}
+    <li><a href="/{{ url }}/{{ element.pk }}">{{ element }}</a></li>
+    {% endfor %}
+    </ul>
+
+  </body>
+</html>

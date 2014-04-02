@@ -5,6 +5,15 @@ from timetable.models import Student, Professor, Exam, Timetable, Room
 
 # Create your views here.
 
+def students(request):
+    students = Student.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Students',
+                                    'url' : 'student',
+                                    'list' : students
+                                })
+
 def student(request, student_id):
     timetable = Timetable.objects.all()
     timetable = timetable[0]
@@ -24,6 +33,64 @@ def student(request, student_id):
                                  'last_name' : student.last_name,
                                  'exams' : my_exam
                                  })
+
+
+def students(request):
+    students = Student.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Students',
+                                    'url' : 'student',
+                                    'list' : students
+                                })
+def students(request):
+    students = Student.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Students',
+                                    'url' : 'student',
+                                    'list' : students
+                                })
+def students(request):
+    students = Student.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Students',
+                                    'url' : 'student',
+                                    'list' : students
+                                })
+def students(request):
+    students = Student.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Students',
+                                    'url' : 'student',
+                                    'list' : students
+                                })
+def students(request):
+    students = Student.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Students',
+                                    'url' : 'student',
+                                    'list' : students
+                                })
+def students(request):
+    students = Student.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Students',
+                                    'url' : 'student',
+                                    'list' : students
+                                })
+def professors(request):
+    professors = Professor.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Professors',
+                                    'url' : 'professor',
+                                    'list' : professors
+                                })
 
 def professor(request, professor_id):
     timetable = Timetable.objects.all()
@@ -77,6 +144,15 @@ def room(request, room_id):
                                     'first_name' : room.name,
                                     'last_name' : '',
                                     'exams' : my_exam
+                                })
+
+def rooms_list(request):
+    rooms = Room.objects.all()
+    return render_to_response('list.html',
+                                {
+                                    'title' : 'Rooms',
+                                    'url' : 'room',
+                                    'list' : rooms
                                 })
 
 def index(request):
