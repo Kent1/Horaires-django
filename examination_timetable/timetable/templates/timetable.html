@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <link href="{% static "css/fullcalendar/fullcalendar.css" %}" rel="stylesheet" />
     <link href="{% static "css/fullcalendar/fullcalendar.print.css" %}" rel="stylesheet" media="print" />
+    <link href="{% static "css/calendar.css" %}" rel="stylesheet" />
     <title>Horaire pour {{ first_name }} {{ last_name }}</title>
 
     <script src="{% static "lib/jquery.min.js" %}"></script>
@@ -21,6 +22,7 @@
         var y = date.getFullYear();
 
         $('#calendar').fullCalendar({
+            timeFormat : 'H:m ',
             month : {{ timetable.start.month }}-1,
             year : {{ timetable.start.year }},
             date : {{ timetable.start.day }},

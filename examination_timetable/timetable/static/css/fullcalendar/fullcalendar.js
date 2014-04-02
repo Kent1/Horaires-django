@@ -3993,7 +3993,7 @@ function AgendaEventRenderer() {
 			htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
 			"</div>" +
 			"<div class='fc-event-title'>" +
-			htmlEscape(event.title || '') +
+			event.title +
 			"</div>" +
 			"</div>" +
 			"<div class='fc-event-bg'></div>";
@@ -5342,7 +5342,9 @@ function DayEventRenderer() {
 			html += "<div";
 		}
 		html +=
-			" class='" + classNames.join(' ') + "'" +
+			" class=' "
+		html += event.start.getHours() < 13 ? "am " : "pm "
+		html += classNames.join(' ') + "'" +
 			" style=" +
 				"'" +
 				"position:absolute;" +
