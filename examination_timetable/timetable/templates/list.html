@@ -1,19 +1,35 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ title }} list</title>
+    <title>Timetable scheduler - {{ title }} list</title>
+
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
   </head>
 
-
   <body>
-        <h2>{{ title }} list</h2>
-    <p>
-    <ul>
-    {% for element in list %}
-    <li><a href="/{{ url }}/{{ element.pk }}">{{ element }}</a></li>
-    {% endfor %}
-    </ul>
-    </p>
+    <div class="container">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="page-header">
+            <h1>
+                Timetable scheduler  <small>{{ title }} List</small>
+            </h1>
+        </div>
+
+        <p>
+          <ul>
+            {% for element in list %}
+              <li><a href="/{{ url }}/{{ element.pk }}">{{ element }}</a></li>
+            {% endfor %}
+          </ul>
+        </p>
+
+    </div>
+    </div>
+    </div>
   </body>
 </html>

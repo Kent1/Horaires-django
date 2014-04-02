@@ -1,36 +1,75 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Horaires</title>
-    </head>
+    <title>Timetable scheduler - Index</title>
 
-    <body>
-    <h2>Examinations list</h2>
-    <p>
-    <ul>
-    {% for exam in exams %}
-    <li><a href="/exam/{{ exam.pk }}">{{ exam.name }}</a></li>
-    {% endfor %}
-    </ul>
-    <h2>Professors list</h2>
-    <ul>
-    {% for professor in professors %}
-    <li><a href="/professor/{{professor.pk}}">{{ professor }}</a></li>
-    {% endfor %}
-    </ul>
-    <h2>Students list</h2>
-    <ul>
-    {% for student in students %}
-    <li><a href="/student/{{ student.pk }}">{{ student }}</a></li>
-    {% endfor %}
-    </ul>
-    <h2>Room list</h2>
-    <ul>
-    {% for room in rooms %}
-    <li><a href="/room/{{room.pk }}">{{ room }}</a></li>
-    {% endfor %}
-    </ul>
-    </p>
-    </body>
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="page-header">
+            <h1>
+                Timetable scheduler  <small>Index</small>
+            </h1>
+        </div>
+
+        <h2 class="text-info">
+          Examinations list
+        </h2>
+
+        <p>
+          <ul>
+          {% for exam in exams %}
+            <li><a href="/exam/{{ exam.pk }}">{{ exam.name }}</a></li>
+          {% endfor %}
+          </ul>
+        </p>
+
+        <h2 class="text-info">
+          Professors list
+        </h2>
+
+        <p>
+          <ul>
+          {% for professor in professors %}
+            <li><a href="/professor/{{professor.pk}}">{{ professor }}</a></li>
+          {% endfor %}
+          </ul>
+        </p>
+
+        <h2 class="text-info">
+          Students list
+        </h2>
+
+        <p>
+          <ul>
+          {% for student in students %}
+            <li><a href="/student/{{ student.pk }}">{{ student }}</a></li>
+          {% endfor %}
+          </ul>
+        </p>
+
+        <h2 class="text-info">
+          Room list
+        </h2>
+
+        <p>
+          <ul>
+          {% for room in rooms %}
+            <li><a href="/room/{{room.pk }}">{{ room }}</a></li>
+          {% endfor %}
+          </ul>
+        </p>
+
+    </div>
+    </div>
+    </div>
+  </body>
 </html>

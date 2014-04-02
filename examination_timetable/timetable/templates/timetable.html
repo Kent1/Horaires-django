@@ -1,72 +1,84 @@
 {% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <title>Timetable scheduler - {{ first_name }} {{ last_name }}'s schedule</title>
+
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
     <link href="{% static "css/fullcalendar/fullcalendar.css" %}" rel="stylesheet" />
     <link href="{% static "css/fullcalendar/fullcalendar.print.css" %}" rel="stylesheet" media="print" />
     <link href="{% static "css/calendar.css" %}" rel="stylesheet" />
-    <title>Horaire pour {{ first_name }} {{ last_name }}</title>
+
 
     <script src="{% static "lib/jquery.min.js" %}"></script>
     <script src="{% static "lib/jquery-ui.custom.min.js" %}"></script>
     <script src="{% static "css/fullcalendar/fullcalendar.js" %}"></script>
     <script>
+      $(document).ready(function() {
 
-    $(document).ready(function() {
+          var date = new Date();
+          var d = date.getDate();
+          var m = date.getMonth();
+          var y = date.getFullYear();
 
-        var date = new Date();
-        var d = date.getDate();
-        var m = date.getMonth();
-        var y = date.getFullYear();
-
-        $('#calendar').fullCalendar({
-            timeFormat : 'H:m ',
-            month : {{ timetable.start.month }}-1,
-            year : {{ timetable.start.year }},
-            date : {{ timetable.start.day }},
-            theme: false,
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek'
-            },
-            editable: false,
-            hiddenDays : [0, 6], // 0 Sunday and 6 Saturday
-            events: [
-            {% for exam in exams %}
-                {
-                    url : "/exam/{{ exam.pk }}",
-                    title: "{{ exam.name }}",
-                    start: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_start }}, {{ exam.m_start }}),
-                    end: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_end }}, {{ exam.m_end }}),
-                    allDay: false
-                },
-            {% endfor %}
-            ]
-        });
-    });
-
+          $('#calendar').fullCalendar({
+              timeFormat : 'H:m ',
+              month : {{ timetable.start.month }}-1,
+              year : {{ timetable.start.year }},
+              date : {{ timetable.start.day }},
+              theme: false,
+              header: {
+                  left: 'prev,next today',
+                  center: 'title',
+                  right: 'month,agendaWeek'
+              },
+              editable: false,
+              hiddenDays : [0, 6], // 0 Sunday and 6 Saturday
+              events: [
+              {% for exam in exams %}
+                  {
+                      url : "/exam/{{ exam.pk }}",
+                      title: "{{ exam.name }}",
+                      start: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_start }}, {{ exam.m_start }}),
+                      end: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_end }}, {{ exam.m_end }}),
+                      allDay: false
+                  },
+              {% endfor %}
+              ]
+          });
+      });
     </script>
-<style>
 
-    body {
-        margin-top: 40px;
-        text-align: center;
-        font-size: 13px;
-        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-        }
-
-    #calendar {
-        width: 900px;
+    <style>
+      #calendar {
+        width: 750px;
         margin: 0 auto;
-        }
 
-</style>
-</head>
-<body>
-<h1>Horaire pour {{ first_name }} {{ last_name }}</h1>
-<div id='calendar'></div>
-</body>
+        }
+      a:hover {
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="page-header">
+        <span style="text-align: center;">
+          <h1>
+              Timetable scheduler  <small>{{ first_name }} {{ last_name }}'s schedule</small>
+          </h1>
+        </span>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+    <div id='calendar'></div>
+  </body>
 </html>

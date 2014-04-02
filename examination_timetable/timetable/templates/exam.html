@@ -1,33 +1,56 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ exam.name }}</title>
+    <title>Timetable scheduler - {{ exam.name }}</title>
+
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
   </head>
 
-
   <body>
-    <h1>{{ exam.name }}</h1>
-    <p>Professor : <strong><a href="/professor/{{exam.professor.pk}}">{{ exam.professor }}</a></strong></p>
-    <p>
-        Faculty : <strong>{{ exam.faculty }}</strong><br />
-        Room needed : {{ exam.room_type }}<br />
-        Room assigned : <a href="/room/{{ exam.room.pk }}">{{ exam.room }}</a><br/>
-        Timeslot assigned : <strong>{{ exam.timeslot }}</strong>
-    </p>
-    <p>
-    {% if exam.dependencies == None %}
-    No dependency
-    {% else %}
-    Dependencies : {{ exam.dependencies.all }}
-    {% endif %}
-    </p>
-    <p>Students ({{ exam.students.all|length }}) :
-        <ul>
+    <div class="container">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="page-header">
+            <h1>
+                Timetable scheduler  <small>{{ exam.name }}</small>
+            </h1>
+        </div>
+
+        <h3 class="text-info">
+            {{ exam.name }}
+        </h3>
+
+        <p>
+          Professor : <strong><a href="/professor/{{exam.professor.pk}}">{{ exam.professor }}</a></strong>
+        </p>
+        <p>
+          Faculty : <strong>{{ exam.faculty }}</strong><br />
+          Room needed : {{ exam.room_type }}<br />
+          Room assigned : <a href="/room/{{ exam.room.pk }}">{{ exam.room }}</a><br/>
+          Timeslot assigned : <strong>{{ exam.timeslot }}</strong>
+        </p>
+        <p>
+          {% if exam.dependencies == None %}
+            No dependency
+          {% else %}
+            Dependencies : {{ exam.dependencies.all }}
+          {% endif %}
+        </p>
+        <p>
+          Students ({{ exam.students.all|length }}) :
+          <ul>
             {% for student in exam.students.all %}
-            <li><a href="/student/{{ student.pk }}">{{ student }}</a></li>
+              <li><a href="/student/{{ student.pk }}">{{ student }}</a></li>
             {% endfor %}
-        </ul>
-    <p>
+          </ul>
+        </p>
+
+    </div>
+    </div>
+    </div>
   </body>
 </html>
