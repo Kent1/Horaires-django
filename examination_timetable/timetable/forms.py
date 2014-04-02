@@ -1,14 +1,14 @@
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from models import Exam, Room, MyUser, Unavailability, Timetable
+import models
 
 
 class ExamForm(forms.ModelForm):
     forms.BooleanField()
 
     class Meta:
-        model = Exam
+        model = models.Exam
         help_texts = {
             'name': '',
             'faculty': 'Faculty which organizes the exam.',
@@ -21,7 +21,7 @@ class ExamForm(forms.ModelForm):
 class RoomForm(forms.ModelForm):
 
     class Meta:
-        model = Room
+        model = models.Room
         help_texts = {
             'name': '',
             'faculty': 'Choose the faculty which owns the room.',
@@ -37,7 +37,7 @@ class UserCreationForm(forms.ModelForm):
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
-        model = MyUser
+        model = models.MyUser
         fields = ('matricule', 'first_name', 'last_name', 'email')
 
     def __init__(self, *args, **kwargs):
@@ -74,7 +74,7 @@ class UserChangeForm(forms.ModelForm):
     password = ReadOnlyPasswordHashField()
 
     class Meta:
-        model = MyUser
+        model = models.MyUser
         fields = ['matricule', 'password', 'is_active', 'is_admin']
 
     def clean_password(self):
@@ -94,14 +94,14 @@ class UnavailabilityForm(forms.ModelForm):
                              initial='morning', widget=forms.RadioSelect())
 
     class Meta:
-        model = Unavailability
+        model = models.Unavailability
         fields = ['professor', 'date', 'ampm']
 
 
 class TimetableForm(forms.ModelForm):
 
     class Meta:
-        model = Timetable
+        model = models.Timetable
 
     def clean_start(self):
         start = self.cleaned_data['start']

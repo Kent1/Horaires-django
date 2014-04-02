@@ -2,22 +2,15 @@ from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 
-from models import *
-from forms import (
-    ExamForm,
-    RoomForm,
-    UserChangeForm,
-    UserCreationForm,
-    UnavailabilityForm,
-    TimetableForm
-    )
+import models
+import forms
 
-admin.site.register(Faculty)
-admin.site.register(RoomType)
+admin.site.register(models.Faculty)
+admin.site.register(models.RoomType)
 
 
 class ExamAdmin(admin.ModelAdmin):
-    form = ExamForm
+    form = forms.ExamForm
     list_display = ('name', 'faculty', 'professor')
     #fields = ['name', 'faculty', 'room_type', 'professor', 'students']
     fieldsets = (
@@ -29,20 +22,20 @@ class ExamAdmin(admin.ModelAdmin):
         ('Dependencies', {'fields': ('dependencies',)}),
     )
 
-admin.site.register(Exam, ExamAdmin)
+admin.site.register(models.Exam, ExamAdmin)
 
 
 class RoomAdmin(admin.ModelAdmin):
-    form = RoomForm
+    form = forms.RoomForm
     list_display = ('name', 'faculty', 'capacity', 'room_type')
 
-admin.site.register(Room, RoomAdmin)
+admin.site.register(models.Room, RoomAdmin)
 
 
 class ProfessorAdmin(UserAdmin):
     # The forms to add and change user instances
-    form = UserChangeForm
-    add_form = UserCreationForm
+    form = forms.UserChangeForm
+    add_form = forms.UserCreationForm
 
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
@@ -72,10 +65,11 @@ class ProfessorAdmin(UserAdmin):
     ordering = ('matricule',)
     filter_horizontal = ()
 
+
 class StudentAdmin(UserAdmin):
     # The forms to add and change user instances
-    form = UserChangeForm
-    add_form = UserCreationForm
+    form = forms.UserChangeForm
+    add_form = forms.UserCreationForm
 
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
@@ -105,11 +99,11 @@ class StudentAdmin(UserAdmin):
     filter_horizontal = ()
 
 # Now register the new UserAdmin...
-admin.site.register(Professor, ProfessorAdmin)
+admin.site.register(models.Professor, ProfessorAdmin)
 
 
 class UnavailabilityAdmin(admin.ModelAdmin):
-    form = UnavailabilityForm
+    form = forms.UnavailabilityForm
 
 
 def make_schedule(modeladmin, request, queryset):
@@ -120,13 +114,13 @@ make_schedule.short_description = "Schedule the selected timetable"
 
 
 class TimetableAdmin(admin.ModelAdmin):
-    form = TimetableForm
+    form = forms.TimetableForm
     actions = [make_schedule]
 
-admin.site.register(Timetable, TimetableAdmin)
+admin.site.register(models.Timetable, TimetableAdmin)
 
-admin.site.register(Unavailability, UnavailabilityAdmin)
-admin.site.register(Student, StudentAdmin)
+admin.site.register(models.Unavailability, UnavailabilityAdmin)
+admin.site.register(models.Student, StudentAdmin)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
 admin.site.unregister(Group)
