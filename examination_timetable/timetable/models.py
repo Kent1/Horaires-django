@@ -5,6 +5,7 @@ from django.contrib.auth.models import (
 from django.utils import timezone
 
 import examtimetable
+import util
 
 
 class CustomUserManager(BaseUserManager):
@@ -151,24 +152,17 @@ class Timetable(models.Model):
     exams = models.ManyToManyField(Exam)
     rooms = models.ManyToManyField(Room)
 
-    def get_n_weekend_day(self):
-        return 2
-
-    def get_number_of_we(self):
-        delta = self.end - self.start
-        return ((delta.days + 1) + self.start.weekday()) / 7
-
     def get_timeslots(self):
-        delta = self.end - self.start
-        timeslots = (delta.days + 1) * 2 - self.get_number_of_we() * self.get_n_weekend_day() * 2
+        delta      = self.end - self.start
+        nbr_of_we  = util.nbr_of_we(self.start, self.end)
+        day_per_we = util.day_per_we()
+        timeslots  = (delta.days + 1) * 2 - nbr_of_we * day_per_we * 2
         return timeslots if timeslots > 0 else 0
 
     def to_timetable(self):
-        delta = self.end - self.start
-
         # We only select the working days
         number_of_we = self.get_number_of_we()
-        timeslots = self.get_timeslots()
+        timeslots    = self.get_timeslots()
 
         exams = {exam.pk: exam.to_exam() for exam in self.exams.all()}
 

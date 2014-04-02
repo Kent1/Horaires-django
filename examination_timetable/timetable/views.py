@@ -3,7 +3,8 @@ from django.template import Context, loader
 from django.shortcuts import render, render_to_response
 from timetable.models import Student, Professor, Exam, Timetable, Room
 
-# Create your views here.
+import util
+
 
 def students(request):
     students = Student.objects.all()
@@ -132,17 +133,10 @@ def index(request):
                                     'exams' : exams
                                 })
 
-def get_day_delta(timetable, timeslot):
-
-    delta = timetable.start.weekday() + timeslot/2
-    n_weekend = 0
-    while delta > 6:
-        delta -= 6
-        n_weekend += 1
-    return timeslot/2 + n_weekend*timetable.get_n_weekend_day()
 
 def convert_timeslot_to_date(exam, timetable):
-    exam.date = timetable.start + datetime.timedelta(days=(get_day_delta(timetable, exam.timeslot)))
+    exam.date = timetable.start + datetime.timedelta(
+        days=(get_day_delta(timetable.start, exam.timeslot)))
     time = exam.date.timetuple()
     exam.month = time.tm_mon - 1
     exam.day = time.tm_mday
