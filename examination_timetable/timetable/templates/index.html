@@ -7,6 +7,7 @@
 
     <body>
     <h2>Examinations list</h2>
+    <p>
     <ul>
     {% for exam in exams %}
     <li><a href="/exam/{{ exam.pk }}">{{ exam.name }}</a></li>
@@ -30,5 +31,6 @@
     <li><a href="/room/{{room.pk }}">{{ room }}</a></li>
     {% endfor %}
     </ul>
+    </p>
     </body>
 </html>

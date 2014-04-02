@@ -8,11 +8,12 @@
 
   <body>
         <h2>{{ title }} list</h2>
+    <p>
     <ul>
     {% for element in list %}
     <li><a href="/{{ url }}/{{ element.pk }}">{{ element }}</a></li>
     {% endfor %}
     </ul>
-
+    </p>
   </body>
 </html>

@@ -13,7 +13,7 @@
 	Hour : {{ exam.h_start }}h{{ exam.m_start }} (timeslot {{ exam.timeslot }})<br />
 	Room : <a href="room/{{ exam.room.pk }}">{{ exam.room.name }}</a><br />
 	</p>
-	<p><a href="exam/{{ exam.pk }}">Détails</a>
+	<p><a href="exam/{{ exam.pk }}">Détails</a></p>
 {% endfor %}
 </body>
 </html>

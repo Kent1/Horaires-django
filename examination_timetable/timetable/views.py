@@ -16,11 +16,12 @@ def students(request):
                                 })
 
 def student(request, student_id):
-    timetable = Timetable.objects.all()
-    timetable = timetable[0]
+    exams = Exam.objects.all()
+    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    if timetable == None:
+        return render_to_response('error.html')
     student = Student.objects.get(pk=student_id)
     my_exam = list()
-    exams = Exam.objects.all()
     for exam in exams:
         students = exam.students.all()
         for stud in students:
@@ -56,11 +57,12 @@ def professors(request):
                                 })
 
 def professor(request, professor_id):
-    timetable = Timetable.objects.all()
-    timetable = timetable[0]
+    exams = Exam.objects.all()
+    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    if timetable == None:
+        return render_to_response('error.html')
     professor = Professor.objects.get(pk=professor_id)
     my_exam = list()
-    exams = Exam.objects.all()
     for exam in exams:
         if exam.professor.pk == professor.pk:
             convert_timeslot_to_date(exam, timetable)
@@ -81,9 +83,10 @@ def exam(request, exam_id):
                                 })
 
 def exams(request):
-    timetable = Timetable.objects.all()
-    timetable = timetable[0]
     exams = Exam.objects.all()
+    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    if timetable == None:
+        return render_to_response('error.html')
     for exam in exams:
         convert_timeslot_to_date(exam, timetable)
     return render_to_response('exams.html',
@@ -93,8 +96,10 @@ def exams(request):
                                 })
 
 def room(request, room_id):
-    timetable = Timetable.objects.all()
-    timetable = timetable[0]
+    exams = Exam.objects.all()
+    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    if timetable == None:
+        return render_to_response('error.html')
     room = Room.objects.get(pk=room_id)
     my_exam = list()
     exams = Exam.objects.all()
