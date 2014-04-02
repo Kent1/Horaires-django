@@ -123,7 +123,8 @@ class Exam(models.Model):
     students     = models.ManyToManyField(Student)
     room         = models.ForeignKey(Room, null=True)
     timeslot     = models.IntegerField(null=True)
-    dependencies = models.ManyToManyField('self', blank=True, null=True)
+    dependencies = models.ManyToManyField('self', blank=True,
+                                          null=True, symmetrical=False)
 
     def to_exam(self):
         return examtimetable.Exam(
