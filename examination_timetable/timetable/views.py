@@ -31,6 +31,7 @@ def student(request, student_id):
                                 {'id': student_id,
                                  'first_name' : student.first_name,
                                  'last_name' : student.last_name,
+                                 'timetable' : timetable,
                                  'exams' : my_exam
                                  })
 
@@ -43,46 +44,7 @@ def students(request):
                                     'url' : 'student',
                                     'list' : students
                                 })
-def students(request):
-    students = Student.objects.all()
-    return render_to_response('list.html',
-                                {
-                                    'title' : 'Students',
-                                    'url' : 'student',
-                                    'list' : students
-                                })
-def students(request):
-    students = Student.objects.all()
-    return render_to_response('list.html',
-                                {
-                                    'title' : 'Students',
-                                    'url' : 'student',
-                                    'list' : students
-                                })
-def students(request):
-    students = Student.objects.all()
-    return render_to_response('list.html',
-                                {
-                                    'title' : 'Students',
-                                    'url' : 'student',
-                                    'list' : students
-                                })
-def students(request):
-    students = Student.objects.all()
-    return render_to_response('list.html',
-                                {
-                                    'title' : 'Students',
-                                    'url' : 'student',
-                                    'list' : students
-                                })
-def students(request):
-    students = Student.objects.all()
-    return render_to_response('list.html',
-                                {
-                                    'title' : 'Students',
-                                    'url' : 'student',
-                                    'list' : students
-                                })
+
 def professors(request):
     professors = Professor.objects.all()
     return render_to_response('list.html',
@@ -106,6 +68,7 @@ def professor(request, professor_id):
                                 {'id' : professor_id,
                                  'first_name' : professor.first_name,
                                  'last_name' : professor.last_name,
+                                 'timetable' : timetable,
                                  'exams' : my_exam
                                 })
 
@@ -143,6 +106,7 @@ def room(request, room_id):
                                     'id' : room.pk,
                                     'first_name' : room.name,
                                     'last_name' : '',
+                                    'timetable' : timetable,
                                     'exams' : my_exam
                                 })
 

@@ -13,13 +13,13 @@
         Faculty : <strong>{{ exam.faculty }}</strong><br />
         Room needed : {{ exam.room_type }}<br />
         Room assigned : <a href="/room/{{ exam.room.pk }}">{{ exam.room }}</a><br/>
-        Timeslot assigned : <strong>{{ exam.timeslot}}</strong>
+        Timeslot assigned : <strong>{{ exam.timeslot }}</strong>
     </p>
     <p>
     {% if exam.dependencies == None %}
     No dependency
     {% else %}
-    Dependencies : {{ exam.dependencies }}
+    Dependencies : {{ exam.dependencies.all }}
     {% endif %}
     </p>
     <p>Students ({{ exam.students.all|length }}) :

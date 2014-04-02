@@ -21,6 +21,9 @@
         var y = date.getFullYear();
 
         $('#calendar').fullCalendar({
+            month : {{ timetable.start.month }}-1,
+            year : {{ timetable.start.year }},
+            date : {{ timetable.start.day }},
             theme: false,
             header: {
                 left: 'prev,next today',
@@ -28,6 +31,7 @@
                 right: 'month,agendaWeek'
             },
             editable: false,
+            hiddenDays : [0, 6], // 0 Sunday and 6 Saturday
             events: [
             {% for exam in exams %}
                 {
