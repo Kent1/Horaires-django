@@ -196,7 +196,5 @@ class Timetable(models.Model):
             self.from_timetable(timetable)
         return status
 
-    def reset(self):
-        for exam in self.exams.all():
-            exam.room = None
-            exam.timeslot = None
+    def __unicode__(self):
+        return "Exam session from %s to %s" % (self.start.isoformat(), self.end.isoformat())
