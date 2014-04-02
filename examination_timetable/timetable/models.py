@@ -126,9 +126,14 @@ class Exam(models.Model):
     dependencies = models.ForeignKey('self', blank=True, null=True)
 
     def to_exam(self):
+        if self.dependencies:
+            deps = [self.dependencies.id]
+        else:
+            deps = None
         return examtimetable.Exam(self.pk, self.name, self.faculty.pk,
                                   self.professor.pk, self.room_type.pk,
-                                  [std.pk for std in self.students.all()])
+                                  [std.pk for std in self.students.all()],
+                                  dependencies=deps)
 
     def from_exam(self, exam):
         if exam.id != self.pk:
