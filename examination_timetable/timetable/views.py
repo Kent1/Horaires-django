@@ -158,8 +158,10 @@ def index(request):
 
 
 def convert_timeslot_to_date(exam, timetable):
+    real_timeslot = exam.timeslot - timetable.start.weekday()*2
+
     exam.date = timetable.start + datetime.timedelta(
-        days=(util.get_day_delta(timetable.start, exam.timeslot)))
+        days=(util.get_day_delta(timetable.start, real_timeslot)))
     time = exam.date.timetuple()
     exam.month = time.tm_mon - 1
     exam.day = time.tm_mday

@@ -176,11 +176,13 @@ class Timetable(models.Model):
                 timeslot += 0 if unavailability.matin else 1
                 availabilities[timeslot] = 0
 
+            availabilities = [0] * (self.start.weekday()*2) + availabilities
+
             exam.availabilities = availabilities
 
         rooms = {room.pk: room.to_room() for room in self.rooms.all()}
         # 2 timeslots per day
-        return examtimetable.Timetable(timeslots, exams, rooms)
+        return examtimetable.Timetable(timeslots + (self.start.weekday()*2), exams, rooms)
 
     def from_timetable(self, timetable):
         for exam in self.exams.all():
