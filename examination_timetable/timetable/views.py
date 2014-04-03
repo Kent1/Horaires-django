@@ -95,6 +95,24 @@ def exams(request):
                                     'timetable' : timetable,
                                 })
 
+def all_exams(request):
+    exams = Exam.objects.all()
+    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    if timetable == None:
+        return render_to_response('error.html')
+
+    colors = []
+    last_color = [0, 0, 0, 0]
+    for exam in exams:
+        convert_timeslot_to_date(exam, timetable)
+        assign_color(exam, colors, last_color)
+
+    return render_to_response('all_exams.html',
+                                {
+                                    'timetable' : timetable,
+                                    'exams' : exams
+                                })
+
 def room(request, room_id):
     exams = Exam.objects.all()
     timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
@@ -153,3 +171,32 @@ def convert_timeslot_to_date(exam, timetable):
     else:
         exam.h_start = 13
         exam.h_end = 17
+
+def assign_color(exam, colors, last_color):
+    assignation = False
+    list_exam_studs = exam.students.all()
+
+    for students, color in colors:
+        counter = 0.0
+        list_studs = students.all()
+
+        for student in list_exam_studs:
+            if student in list_studs:
+                counter += 1
+
+        if counter/len(list_exam_studs) > 0.8:
+            exam.color = color
+            assignation = True
+
+    if not assignation:
+        if last_color[-1] == 0:
+            last_color[0] += (255 - last_color[0])/3
+        elif last_color[-1] == 1:
+            last_color[1] = last_color[0]*2
+        else:
+            last_color[2] = last_color[1]
+        last_color[-1] = (last_color[-1]+1)%3
+
+        color = 'rgb(%d,%d,%d)' % tuple(last_color[:3])
+        colors.append((exam.students, color))
+        exam.color = color
