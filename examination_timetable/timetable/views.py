@@ -19,9 +19,8 @@ def student(request, student_id):
                 my_exam.append(exam)
 
     return render_to_response('timetable.html',
-                                {'id': student_id,
-                                 'first_name' : student.first_name,
-                                 'last_name' : student.last_name,
+                                {
+                                 'title' : student.first_name + ' ' + student.last_name + '\'s',
                                  'timetable' : timetable,
                                  'exams' : my_exam
                                  })
@@ -56,15 +55,18 @@ def professor(request, professor_id):
             convert_timeslot_to_date(exam, timetable)
             my_exam.append(exam)
     return render_to_response('timetable.html',
-                                {'id' : professor_id,
-                                 'first_name' : professor.first_name,
-                                 'last_name' : professor.last_name,
+                                {
+                                 'title' : professor.first_name + ' ' + professor.last_name + '\'s',
                                  'timetable' : timetable,
                                  'exams' : my_exam
                                 })
 
 def exam(request, exam_id):
     exam = Exam.objects.get(pk=exam_id)
+    timetable, exams = util.last_timetable_scheduled(Timetable.objects.all())
+    if timetable == None:
+        return render_to_response('error.html')
+    convert_timeslot_to_date(exam, timetable)
     return render_to_response('exam.html',
                                 {
                                     'exam' : exam,
@@ -94,8 +96,9 @@ def all_exams(request):
         convert_timeslot_to_date(exam, timetable)
         assign_color(exam, colors, last_color)
 
-    return render_to_response('all_exams.html',
+    return render_to_response('timetable.html',
                                 {
+                                    'title' : 'All exams',
                                     'timetable' : timetable,
                                     'exams' : exams
                                 })
@@ -113,9 +116,7 @@ def room(request, room_id):
             my_exam.append(exam)
     return render_to_response('timetable.html',
                                 {
-                                    'id' : room.pk,
-                                    'first_name' : room.name,
-                                    'last_name' : '',
+                                    'title' : room.name + '\'s',
                                     'timetable' : timetable,
                                     'exams' : my_exam
                                 })
@@ -158,9 +159,11 @@ def convert_timeslot_to_date(exam, timetable):
     if exam.timeslot % 2 == 0:
         exam.h_start = 8
         exam.h_end = 12
+        exam.color = 'blue'
     else:
         exam.h_start = 13
         exam.h_end = 17
+        exam.color = 'green'
 
 def assign_color(exam, colors, last_color):
     assignation = False

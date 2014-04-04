@@ -1,30 +1,8 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Timetable scheduler - Index</title>
+{% extends "template.html" %}
 
-    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+{% block title %}Home{% endblock %}
 
-  </head>
-
-  <body>
-    <div class="container">
-    <div class="row clearfix">
-    <div class="col-md-12 column">
-      <div class="page-header">
-        <h1>
-          Timetable scheduler  <small>Index</small>
-        </h1>
-      </div>
-    </div>
-    </div>
-    </div>
-    <div class="container">
-    <div class="row clearfix">
-    <div class="col-md-9 column">
+{% block contents %}
         <h2 class="text-info">
           Examinations list
         </h2>
@@ -72,30 +50,4 @@
           {% endfor %}
           </ul>
         </p>
-    </div>
-    <div class="col-md-3 column">
-      <ul class="nav nav-stacked nav-pills border">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/all_exams">All exams</a>
-        </li>
-        <li>
-          <a href="/exams">Exam list</a>
-        </li>
-        <li>
-          <a href="/professors">Professor list</a>
-        </li>
-        <li>
-          <a href="/students">Student list</a>
-        </li>
-        <li>
-          <a href="/rooms">Room list</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-    </div>
-  </body>
-</html>
+{% endblock%}

@@ -5343,7 +5343,6 @@ function DayEventRenderer() {
         }
         html +=
             " class=' "
-        html += event.start.getHours() < 13 ? "am " : "pm "
         html += classNames.join(' ') + "'" +
             " style=" +
                 "'" +

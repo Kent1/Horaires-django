@@ -1,42 +1,21 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Timetable scheduler - Error</title>
+{% extends "template.html" %}
 
-    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+{% block title %}Error{% endblock %}
 
-  </head>
-
-
-  <body>
-    <div class="container">
-      <div class="row clearfix">
-        <div class="col-md-12 column">
-          <div class="page-header">
-            <h1>
-              Timetable scheduler  <small>Error</small>
-            </h1>
-          </div>
-          <p class="text-warning lead">
-            There is no (scheduled) timetable in the database.<br/>
-          </p>
-          <p class="text-info lead">
-            Solutions are :
-            <ul class="text-info">
-              <li>
-                Create a timetable in the database,
-              </li>
-              <em>and/or</em>
-              <li>
-                Execute a schedule on a timetable.
-              </li>
-            </ul>
-          </p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+{% block contents %}
+<p class="text-warning lead">
+There is no (scheduled) timetable in the database.<br/>
+</p>
+<p class="text-info lead">
+Solutions are :
+<ul class="text-info">
+    <li>
+        Create a timetable in the database,
+    </li>
+    <em>and/or</em>
+    <li>
+        Execute a schedule on a timetable.
+    </li>
+</ul>
+</p>
+{% endblock %}

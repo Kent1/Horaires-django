@@ -1,18 +1,29 @@
+{% extends "template.html" %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Timetable scheduler - {{ first_name }} {{ last_name }}'s schedule</title>
 
-    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+{% block title %}{{ title }} schedule{% endblock %}
 
-    <link href="{% static "css/fullcalendar/fullcalendar.css" %}" rel="stylesheet" />
-    <link href="{% static "css/fullcalendar/fullcalendar.print.css" %}" rel="stylesheet" media="print" />
-    <link href="{% static "css/calendar.css" %}" rel="stylesheet" />
+{% block css %}
+<link href="{% static "css/fullcalendar/fullcalendar.css" %}" rel="stylesheet" />
+<link href="{% static "css/fullcalendar/fullcalendar.print.css" %}" rel="stylesheet" media="print" />
+<link href="{% static "css/calendar.css" %}" rel="stylesheet" />
 
+<style>
+  #calendar {
+    margin: 0 auto;
+    }
 
+  #calendar a:hover {
+    color: #ffffff;
+  }
+</style>
+{% endblock %}
+
+{% block contents %}
+<div id='calendar'></div>
+{% endblock %}
+
+{% block script %}
     <script src="{% static "lib/jquery.min.js" %}"></script>
     <script src="{% static "lib/jquery-ui.custom.min.js" %}"></script>
     <script src="{% static "css/fullcalendar/fullcalendar.js" %}"></script>
@@ -40,6 +51,8 @@
               events: [
               {% for exam in exams %}
                   {
+                      backgroundColor: "{{ exam.color }}",
+                      borderColor: "{{ exam.color }}",
                       url : "/exam/{{ exam.pk }}",
                       title: "{{ exam.name }}",
                       start: new Date(y, {{ exam.month }}, {{ exam.day }}, {{ exam.h_start }}, {{ exam.m_start }}),
@@ -51,54 +64,4 @@
           });
       });
     </script>
-
-    <style>
-      #calendar {
-        margin: 0 auto;
-
-        }
-      #calendar a:hover {
-        color: #ffffff;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-        <div class="row clearfix">
-            <div class="col-md-12 column">
-                <div class="page-header">
-                    <span style="text-align: center;">
-                        <h1>
-                            Timetable scheduler  <small>{{ first_name }} {{ last_name }}'s schedule</small>
-                        </h1>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row clearfix">
-            <div class ="col-md-9 column" id='calendar'></div>
-        <div class="col-md-3 column">
-      <ul class="nav nav-stacked nav-pills border">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/exams">Exam list</a>
-        </li>
-        <li>
-          <a href="/professors">Professor list</a>
-        </li>
-        <li>
-          <a href="/students">Student list</a>
-        </li>
-        <li>
-          <a href="/rooms">Room list</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-    </div>
-  </body>
-</html>
+{% endblock %}

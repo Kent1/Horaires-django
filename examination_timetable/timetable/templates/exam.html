@@ -1,81 +1,37 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Timetable scheduler - {{ exam.name }}</title>
+{% extends "template.html" %}
 
-    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+{% block title %}{{ exam.name }}{% endblock %}
 
-  </head>
+{% block contents %}
+<h3 class="text-info">
+    {{ exam.name }}
+</h3>
 
-  <body>
-    <div class="container">
-    <div class="row clearfix">
-    <div class="col-md-12 column">
-      <div class="page-header">
-        <h1>
-          Timetable scheduler  <small>{{ exam.name }}</small>
-        </h1>
-      </div>
-    </div>
-    </div>
-    </div>
-    <div class="container">
-    <div class="row clearfix">
-    <div class="col-md-9 column">
-      <h3 class="text-info">
-          {{ exam.name }}
-      </h3>
+<p>
+    Professor : <strong><a href="/professor/{{exam.professor.pk}}">{{ exam.professor }}</a></strong>
+</p>
 
-      <p>
-        Professor : <strong><a href="/professor/{{exam.professor.pk}}">{{ exam.professor }}</a></strong>
-      </p>
-      <p>
-        Faculty : <strong>{{ exam.faculty }}</strong><br />
-        Room needed : {{ exam.room_type }}<br />
-        Room assigned : <a href="/room/{{ exam.room.pk }}">{{ exam.room }}</a><br/>
-        Timeslot assigned : <strong>{{ exam.timeslot }}</strong>
-      </p>
-      <p>
-        {% if exam.dependencies == None %}
-          No dependency
-        {% else %}
-          Dependencies : {{ exam.dependencies.all }}
-        {% endif %}
-      </p>
-      <p>
-        Students ({{ exam.students.all|length }}) :
-        <ul>
-          {% for student in exam.students.all %}
-            <li><a href="/student/{{ student.pk }}">{{ student }}</a></li>
-          {% endfor %}
-        </ul>
-      </p>
+<p>
+    Faculty : <strong>{{ exam.faculty }}</strong><br />
+    Room needed : {{ exam.room_type }}<br />
+    Room assigned : <a href="/room/{{ exam.room.pk }}">{{ exam.room }}</a><br/>
+    Date : {{ exam.date }} {{ exam.h_start }}h{{ exam.m_start }}<br />
+    Timeslot assigned : <strong>{{ exam.timeslot }}</strong>
+</p>
 
-    </div>
-    <div class="col-md-3 column">
-      <ul class="nav nav-stacked nav-pills border">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/exams">Exam list</a>
-        </li>
-        <li>
-          <a href="/professors">Professor list</a>
-        </li>
-        <li>
-          <a href="/students">Student list</a>
-        </li>
-        <li>
-          <a href="/rooms">Room list</a>
-        </li>
-      </ul>
-    </div>
-
-    </div>
-    </div>
-  </body>
-</html>
+<p>
+    {% if exam.dependencies == None %}
+    No dependency
+    {% else %}
+    Dependencies : {{ exam.dependencies.all }}
+    {% endif %}
+</p>
+<p>
+    Students ({{ exam.students.all|length }}) :
+    <ul>
+        {% for student in exam.students.all %}
+        <li><a href="/student/{{ student.pk }}">{{ student }}</a></li>
+        {% endfor %}
+    </ul>
+</p>
+{% endblock %}
