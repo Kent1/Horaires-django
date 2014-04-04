@@ -1,3 +1,11 @@
 .border {
   outline: 1px solid #3A87AD;
 }
+
+#calendar {
+    margin: 0 auto;
+}
+
+#calendar a:hover {
+    color: #ffffff;
+}

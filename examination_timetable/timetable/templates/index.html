@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home{% endblock title %}
+{% block h1 %}Home{% endblock h1 %}
 
 {% block contents %}
         <h2 class="text-info">
@@ -50,4 +51,4 @@
           {% endfor %}
           </ul>
         </p>
-{% endblock%}
+{% endblock contents %}

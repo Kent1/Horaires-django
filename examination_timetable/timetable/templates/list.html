@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 
-{% block title %}{{ title }} list{% endblock %}
+{% block title %}{{ title }} list{% endblock title %}
+{% block h1 %}{{ title }} list{% endblock h1 %}
 
 {% block contents %}
 <p>
@@ -10,4 +11,4 @@
     {% endfor %}
   </ul>
 </p>
-{% endblock %}
+{% endblock contents %}

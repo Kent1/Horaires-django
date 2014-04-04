@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 
-{% block title %}{{ exam.name }}{% endblock %}
+{% block title %}{{ exam.name }}{% endblock title %}
+{% block h1 %}{{ exam.name }}{% endblock h1 %}
 
 {% block contents %}
 <h3 class="text-info">
@@ -34,4 +35,4 @@
         {% endfor %}
     </ul>
 </p>
-{% endblock %}
+{% endblock contents %}

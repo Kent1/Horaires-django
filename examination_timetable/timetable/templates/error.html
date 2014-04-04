@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 
-{% block title %}Error{% endblock %}
+{% block title %}Error{% endblock title %}
+{% block h1 %}Exam list{% endblock h1 %}
 
 {% block contents %}
 <p class="text-warning lead">
@@ -18,4 +19,4 @@ Solutions are :
     </li>
 </ul>
 </p>
-{% endblock %}
+{% endblock contents %}

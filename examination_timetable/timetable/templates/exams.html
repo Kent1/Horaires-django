@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 
-{% block title %}Exam list{% endblock %}
+{% block title %}Exam list{% endblock title %}
+{% block h1 %}Exam list{% endblock h1 %}
 
 {% block contents %}
         {% for exam in exams %}
@@ -13,4 +14,4 @@
             Room : <a href="room/{{ exam.room.pk }}">{{ exam.room.name }}</a><br />
         </p> <a href="exam/{{ exam.pk }}" class="btn btn-default" type="button">Details</a>
         {% endfor %}
-{% endblock %}
+{% endblock contents %}

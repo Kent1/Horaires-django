@@ -1,27 +1,18 @@
 {% extends "template.html" %}
 {% load staticfiles %}
 
-{% block title %}{{ title }} schedule{% endblock %}
+{% block title %}{{ title }} schedule{% endblock title %}
+{% block h1 %}{{ title }} schedule{% endblock h1 %}
 
 {% block css %}
 <link href="{% static "css/fullcalendar/fullcalendar.css" %}" rel="stylesheet" />
 <link href="{% static "css/fullcalendar/fullcalendar.print.css" %}" rel="stylesheet" media="print" />
 <link href="{% static "css/calendar.css" %}" rel="stylesheet" />
-
-<style>
-  #calendar {
-    margin: 0 auto;
-    }
-
-  #calendar a:hover {
-    color: #ffffff;
-  }
-</style>
-{% endblock %}
+{% endblock css %}
 
 {% block contents %}
 <div id='calendar'></div>
-{% endblock %}
+{% endblock contents %}
 
 {% block script %}
     <script src="{% static "lib/jquery.min.js" %}"></script>
@@ -47,7 +38,7 @@
                   right: 'month,agendaWeek'
               },
               editable: false,
-              hiddenDays : [0, 6], // 0 Sunday and 6 Saturday
+              hiddenDays : [0], // 0 Sunday and 6 Saturday
               events: [
               {% for exam in exams %}
                   {
@@ -64,4 +55,4 @@
           });
       });
     </script>
-{% endblock %}
+{% endblock script %}
