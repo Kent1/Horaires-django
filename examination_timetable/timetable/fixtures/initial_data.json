@@ -3750,7 +3750,7 @@
         }
     },
     {
-        "pk": 1,
+        "pk": 2,
         "model": "timetable.faculty",
         "fields": {
             "name": "Sciences"
@@ -3788,7 +3788,7 @@
         "pk": 1,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 250,
             "room_type": 1,
             "name": "NiGa. Curie"
@@ -3798,7 +3798,7 @@
         "pk": 2,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 34,
             "room_type": 3,
             "name": "NiGa. Escher"
@@ -3808,7 +3808,7 @@
         "pk": 3,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 350,
             "room_type": 1,
             "name": "NiGa. Gutenberg"
@@ -3818,7 +3818,7 @@
         "pk": 4,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 40,
             "room_type": 3,
             "name": "NiGa. Pascal"
@@ -3828,7 +3828,7 @@
         "pk": 5,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 108,
             "room_type": 2,
             "name": "NiGa. Plisnier"
@@ -3838,7 +3838,7 @@
         "pk": 6,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 36,
             "room_type": 3,
             "name": "NiGa. Turing"
@@ -3848,7 +3848,7 @@
         "pk": 7,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 450,
             "room_type": 1,
             "name": "NiGa. VanGogh"
@@ -3858,7 +3858,7 @@
         "pk": 8,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 51,
             "room_type": 2,
             "name": "NiP. 0A07"
@@ -3868,7 +3868,7 @@
         "pk": 9,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 51,
             "room_type": 2,
             "name": "NiP. 0A11"
@@ -3878,7 +3878,7 @@
         "pk": 10,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 54,
             "room_type": 2,
             "name": "NiP. 3C09"
@@ -3888,7 +3888,7 @@
         "pk": 11,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 25,
             "room_type": 2,
             "name": "NiP. 3E10"
@@ -3898,7 +3898,7 @@
         "pk": 12,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 25,
             "room_type": 2,
             "name": "NiP. 3E11"
@@ -3908,10 +3908,110 @@
         "pk": 13,
         "model": "timetable.room",
         "fields": {
-            "faculty": 1,
+            "faculty": 2,
             "capacity": 35,
             "room_type": 2,
             "name": "NiP. 3E20"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 40,
+            "room_type": 4,
+            "name": "NiB4. 0012Lab"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 24,
+            "room_type": 2,
+            "name": "NiB4. 119"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 32,
+            "room_type": 2,
+            "name": "NiB4. 120"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 96,
+            "room_type": 1,
+            "name": "NiB6. 18"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 91,
+            "room_type": 1,
+            "name": "NiB6. 124"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 96,
+            "room_type": 1,
+            "name": "NiB6. 211"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 30,
+            "room_type": 2,
+            "name": "NiGa. ConseilSR"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 140,
+            "room_type": 1,
+            "name": "NiVésale. 020"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 166,
+            "room_type": 1,
+            "name": "NiVésale. 023"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "timetable.room",
+        "fields": {
+            "faculty": 2,
+            "capacity": 140,
+            "room_type": 1,
+            "name": "NiVésale. 025"
         }
     },
     {
@@ -3993,7 +4093,7 @@
                 142574
             ],
             "professor": 501458,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4079,7 +4179,7 @@
                 142574
             ],
             "professor": 501235,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4165,7 +4265,7 @@
                 142574
             ],
             "professor": 530788,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4251,7 +4351,7 @@
                 142574
             ],
             "professor": 501409,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4287,7 +4387,7 @@
                 131803
             ],
             "professor": 500284,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4323,7 +4423,7 @@
                 131803
             ],
             "professor": 501239,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4359,7 +4459,7 @@
                 131803
             ],
             "professor": 500303,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [6],
             "timeslot": null,
             "room_type": 2,
@@ -4395,7 +4495,7 @@
                 131803
             ],
             "professor": 531817,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4431,7 +4531,7 @@
                 131803
             ],
             "professor": 500724,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4467,7 +4567,7 @@
                 131803
             ],
             "professor": 503083,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4503,7 +4603,7 @@
                 131803
             ],
             "professor": 503120,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4539,7 +4639,7 @@
                 131803
             ],
             "professor": 531809,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4575,7 +4675,7 @@
                 131803
             ],
             "professor": 500284,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4596,7 +4696,7 @@
                 132151
             ],
             "professor": 530164,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4617,7 +4717,7 @@
                 132151
             ],
             "professor": 500724,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4638,7 +4738,7 @@
                 132151
             ],
             "professor": 500214,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4659,7 +4759,7 @@
                 132151
             ],
             "professor": 530054,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 3,
@@ -4680,7 +4780,7 @@
                 132151
             ],
             "professor": 503120,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4701,7 +4801,7 @@
                 132151
             ],
             "professor": 501116,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4722,7 +4822,7 @@
                 132151
             ],
             "professor": 501409,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4751,7 +4851,7 @@
                 132218
             ],
             "professor": 500724,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4780,7 +4880,7 @@
                 132218
             ],
             "professor": 501112,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 1,
@@ -4809,7 +4909,7 @@
                 132218
             ],
             "professor": 530438,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4838,7 +4938,7 @@
                 132218
             ],
             "professor": 500303,
-            "faculty": 1,
+            "faculty": 2,
             "dependencies": [],
             "timeslot": null,
             "room_type": 2,
@@ -4890,7 +4990,18 @@
                 10,
                 11,
                 12,
-                13
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24
             ]
         }
     }
