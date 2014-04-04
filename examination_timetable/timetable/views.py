@@ -6,8 +6,7 @@ from timetable.models import Student, Professor, Exam, Timetable, Room
 import util
 
 def student(request, student_id):
-    exams = Exam.objects.all()
-    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    timetable, exams = util.last_timetable_scheduled(Timetable.objects.all())
     if timetable == None:
         return render_to_response('error.html')
     student = Student.objects.get(pk=student_id)
@@ -47,8 +46,7 @@ def professors(request):
                                 })
 
 def professor(request, professor_id):
-    exams = Exam.objects.all()
-    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    timetable, exams = util.last_timetable_scheduled(Timetable.objects.all())
     if timetable == None:
         return render_to_response('error.html')
     professor = Professor.objects.get(pk=professor_id)
@@ -73,11 +71,11 @@ def exam(request, exam_id):
                                 })
 
 def exams(request):
-    exams = Exam.objects.all()
-    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    timetable, exams = util.last_timetable_scheduled(Timetable.objects.all())
     if timetable == None:
         return render_to_response('error.html')
     for exam in exams:
+        print exam.timeslot
         convert_timeslot_to_date(exam, timetable)
     return render_to_response('exams.html',
                                 {
@@ -86,8 +84,7 @@ def exams(request):
                                 })
 
 def all_exams(request):
-    exams = Exam.objects.all()
-    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    timetable, exams = util.last_timetable_scheduled(Timetable.objects.all())
     if timetable == None:
         return render_to_response('error.html')
 
@@ -104,8 +101,7 @@ def all_exams(request):
                                 })
 
 def room(request, room_id):
-    exams = Exam.objects.all()
-    timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
+    timetable, exams = util.last_timetable_scheduled(Timetable.objects.all())
     if timetable == None:
         return render_to_response('error.html')
     room = Room.objects.get(pk=room_id)
@@ -134,10 +130,12 @@ def rooms_list(request):
                                 })
 
 def index(request):
+    timetable, exams = util.last_timetable_scheduled(Timetable.objects.all())
+    if timetable == None:
+        return render_to_response('error.html')
     rooms = Room.objects.all()
     professors = Professor.objects.all()
     students = Student.objects.all()
-    exams = Exam.objects.all()
     return render_to_response('index.html',
                                 {
                                     'rooms' : rooms,

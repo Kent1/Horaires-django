@@ -12,8 +12,8 @@ def get_day_delta(start, timeslot):
     n_weekend = delta / 5
     return timeslot/2 + n_weekend * day_per_we()
 
-def last_timetable_scheduled(timetable, exams):
-    if len(timetable) == 0 or exams[0].timeslot == None:
-        return None
+def last_timetable_scheduled(timetable):
+    if len(timetable) == 0 or timetable[0].exams.all()[0].timeslot == None:
+        return None, None
     else:
-        return timetable[0]
+        return timetable[0], timetable[0].exams.all()
