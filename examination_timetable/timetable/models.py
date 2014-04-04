@@ -178,6 +178,9 @@ class Timetable(models.Model):
 
             availabilities = [0] * (self.start.weekday()*2) + availabilities
 
+            for i in range(11, len(availabilities), 12):
+                availabilities[i] = 0
+
             exam.availabilities = availabilities
 
         rooms = {room.pk: room.to_room() for room in self.rooms.all()}
