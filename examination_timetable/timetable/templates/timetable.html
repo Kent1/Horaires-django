@@ -54,31 +54,51 @@
 
     <style>
       #calendar {
-        width: 750px;
         margin: 0 auto;
 
         }
-      a:hover {
+      #calendar a:hover {
         color: #ffffff;
       }
     </style>
   </head>
   <body>
     <div class="container">
-    <div class="row clearfix">
-    <div class="col-md-12 column">
-        <div class="page-header">
-        <span style="text-align: center;">
-          <h1>
-              Timetable scheduler  <small>{{ first_name }} {{ last_name }}'s schedule</small>
-          </h1>
-        </span>
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <div class="page-header">
+                    <span style="text-align: center;">
+                        <h1>
+                            Timetable scheduler  <small>{{ first_name }} {{ last_name }}'s schedule</small>
+                        </h1>
+                    </span>
+                </div>
+            </div>
         </div>
-
-
+    </div>
+    <div class="container">
+        <div class="row clearfix">
+            <div class ="col-md-9 column" id='calendar'></div>
+        <div class="col-md-3 column">
+      <ul class="nav nav-stacked nav-pills border">
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/exams">Exam list</a>
+        </li>
+        <li>
+          <a href="/professors">Professor list</a>
+        </li>
+        <li>
+          <a href="/students">Student list</a>
+        </li>
+        <li>
+          <a href="/rooms">Room list</a>
+        </li>
+      </ul>
     </div>
     </div>
     </div>
-    <div id='calendar'></div>
   </body>
 </html>

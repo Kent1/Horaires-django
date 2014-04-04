@@ -31,7 +31,7 @@
         </h3>
         <p>
             Dispensé par <a href="professor/{{ exam.professor.pk }}">{{ exam.professor.first_name }} {{ exam.professor.last_name }}</a><br />
-            Hour : {{ exam.h_start }}h{{ exam.m_start }} (timeslot {{ exam.timeslot }})<br />
+            Date : {{exam.date}} {{ exam.h_start }}h{{ exam.m_start }} (timeslot {{ exam.timeslot }})<br />
             Room : <a href="room/{{ exam.room.pk }}">{{ exam.room.name }}</a><br />
         </p> <a href="exam/{{ exam.pk }}" class="btn btn-default" type="button">Details</a>
         {% endfor %}

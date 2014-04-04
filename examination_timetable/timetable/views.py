@@ -5,16 +5,6 @@ from timetable.models import Student, Professor, Exam, Timetable, Room
 
 import util
 
-
-def students(request):
-    students = Student.objects.all()
-    return render_to_response('list.html',
-                                {
-                                    'title' : 'Students',
-                                    'url' : 'student',
-                                    'list' : students
-                                })
-
 def student(request, student_id):
     exams = Exam.objects.all()
     timetable = util.last_timetable_scheduled(Timetable.objects.all(), exams)
@@ -42,7 +32,7 @@ def students(request):
     students = Student.objects.all()
     return render_to_response('list.html',
                                 {
-                                    'title' : 'Students',
+                                    'title' : 'Student',
                                     'url' : 'student',
                                     'list' : students
                                 })
@@ -51,7 +41,7 @@ def professors(request):
     professors = Professor.objects.all()
     return render_to_response('list.html',
                                 {
-                                    'title' : 'Professors',
+                                    'title' : 'Professor',
                                     'url' : 'professor',
                                     'list' : professors
                                 })
@@ -138,7 +128,7 @@ def rooms_list(request):
     rooms = Room.objects.all()
     return render_to_response('list.html',
                                 {
-                                    'title' : 'Rooms',
+                                    'title' : 'Room',
                                     'url' : 'room',
                                     'list' : rooms
                                 })
