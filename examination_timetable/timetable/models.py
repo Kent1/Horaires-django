@@ -63,7 +63,7 @@ class MyUser(AbstractBaseUser, PermissionsMixin):
         return self.is_admin
 
     def __unicode__(self):
-        return '%s (%d)' % (self.get_full_name(), self.matricule)
+        return '%d - %s' % (self.matricule, self.get_full_name())
 
 
 class Professor(MyUser):

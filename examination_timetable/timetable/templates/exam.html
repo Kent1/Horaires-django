@@ -21,10 +21,15 @@
 </p>
 
 <p>
-    {% if exam.dependencies == None %}
+    {% if exam.dependencies.all|length == 0 %}
     No dependency
     {% else %}
-    Dependencies : {{ exam.dependencies.all }}
+    Dependencies :
+    <ul>
+    {% for exam_dep in exam.dependencies.all %}
+        <li>{{ exam_dep }}</li>
+    {% endfor %}
+    </ul>
     {% endif %}
 </p>
 <p>
