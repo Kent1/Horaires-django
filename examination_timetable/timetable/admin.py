@@ -143,6 +143,9 @@ class TimetableAdmin(admin.ModelAdmin):
     form = forms.TimetableForm
     actions = [make_schedule, reset_schedule, reset_make_schedule]
 
+    def has_add_permission(self, request):
+        return False
+
 make_schedule.short_description  = "Schedule the selected timetable(s)"
 reset_schedule.short_description = "Reset schedule informations for the selected timetable(s)"
 reset_make_schedule.short_description = "Reset and schedule the selected timetable(s)"

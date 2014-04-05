@@ -18,6 +18,26 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'Timetable scheduler',
+    'MENU_OPEN_FIRST_CHILD': False,
+    # Set to empty string if you want to hide search from menu
+    'SEARCH_URL': '',
+    #'MENU_EXCLUDE': ('timetable.Timetable'),
+    'MENU' : (
+            {'label'  : 'Scheduler',
+             'url'    : '/admin/timetable/timetable/1/',
+             'icon'   : 'icon-calendar'},
+            {'label'  : 'Databases',
+             'url'    : 'timetable.exam',
+             'icon'   : 'icon-hdd',
+             'models' : ('timetable.exam', 'timetable.professor',
+                         'timetable.student', 'timetable.room',
+                         'timetable.roomtype', 'timetable.faculty',
+                         'timetable.unavailability')},
+        )
+}
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -74,7 +94,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Brussels'
 
 USE_I18N = True
 
