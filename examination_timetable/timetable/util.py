@@ -1,5 +1,6 @@
 import datetime
 
+
 def day_per_we():
     return 1
 
@@ -10,9 +11,10 @@ def nbr_of_we(start, end):
 
 
 def get_day_delta(start, timeslot):
-    delta = start.weekday() + timeslot/2
+    delta = start.weekday() + timeslot / 2
     n_weekend = delta / (7 - day_per_we())
-    return timeslot/2 + n_weekend * day_per_we()
+    return timeslot / 2 + n_weekend * day_per_we()
+
 
 def last_timetable_scheduled(timetable):
     if len(timetable) == 0 or timetable[0].exams.all()[0].timeslot == None:
@@ -20,8 +22,9 @@ def last_timetable_scheduled(timetable):
     else:
         return timetable[0], timetable[0].exams.all()
 
+
 def convert_timeslot_to_date(exam, timetable):
-    real_timeslot = exam.timeslot - timetable.start.weekday()*2
+    real_timeslot = exam.timeslot - timetable.start.weekday() * 2
 
     exam.date = timetable.start + datetime.timedelta(
         days=(get_day_delta(timetable.start, real_timeslot)))
@@ -39,6 +42,7 @@ def convert_timeslot_to_date(exam, timetable):
         exam.h_end = 17
         exam.color = 'green'
 
+
 def assign_color(exam, colors, last_color):
     assignation = False
     list_exam_studs = exam.students.all()
@@ -51,19 +55,26 @@ def assign_color(exam, colors, last_color):
             if student in list_studs:
                 counter += 1
 
-        if counter/len(list_exam_studs) > 0.8:
+        if counter / len(list_exam_studs) > 0.8:
             exam.color = color
             assignation = True
 
     if not assignation:
         if last_color[-1] == 0:
-            last_color[0] += (255 - last_color[0])/3
+            last_color[0] += (255 - last_color[0]) / 3
         elif last_color[-1] == 1:
-            last_color[1] = last_color[0]*2
+            last_color[1] = last_color[0] * 2
         else:
             last_color[2] = last_color[1]
-        last_color[-1] = (last_color[-1]+1)%3
+        last_color[-1] = (last_color[-1] + 1) % 3
 
         color = 'rgb(%d,%d,%d)' % tuple(last_color[:3])
         colors.append((exam.students, color))
         exam.color = color
+
+
+def current_year():
+    year = datetime.now().year
+    if datetime.now().month < 9:
+        return year - 1
+    return year
