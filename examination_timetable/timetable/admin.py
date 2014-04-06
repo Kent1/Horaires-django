@@ -106,52 +106,44 @@ class UnavailabilityAdmin(admin.ModelAdmin):
     form = forms.UnavailabilityForm
 
 
-def make_schedule(modeladmin, request, queryset):
-    for timetable in queryset:
-        status = timetable.schedule()
+def make_schedule(modeladmin, request, timetable):
+    status = timetable.schedule()
 
-        if status != -1:
-            messages.success(request, 'Timetable has been scheduled successfully.')
-            if status == 1:
-                messages.warning(request, 'ILS terminates on threshold condition.')
-            elif status == 2:
-                messages.warning(request, 'ILS terminates on time condition.')
-            elif status == 3:
-                messages.warning(request, 'ILS terminates on not enough improvement condition.')
-            elif status == 4:
-                messages.warning(request, 'ILS terminates caused by a non improvable solution.')
-        else:
-            messages.error(request, 'Timetable has no feasible schedule.')
-            messages.warning(request, 'Graph Color has not been able to find a solution.')
+    if status != -1:
+        messages.success(request, 'Timetable has been scheduled successfully.')
+        # Debug stuff
+        # if status == 1:
+        #     messages.warning(request, 'ILS terminates on threshold condition.')
+        # elif status == 2:
+        #     messages.warning(request, 'ILS terminates on time condition.')
+        # elif status == 3:
+        #     messages.warning(request, 'ILS terminates on not enough improvement condition.')
+        # elif status == 4:
+        #     messages.warning(request, 'ILS terminates caused by a non improvable solution.')
+    else:
+        messages.error(request, 'Timetable has no feasible schedule.')
+        # messages.warning(request, 'Graph Color has not been able to find a solution.')
 
-    queryset.update()
+def reset_make_schedule(modeladmin, request, timetable):
+    timetable.exams.all().update(room=None)
+    timetable.exams.all().update(timeslot=None)
 
-def reset_schedule(modeladmin, request, queryset):
-    for timetable in queryset:
-        timetable.exams.all().update(room=None)
-        timetable.exams.all().update(timeslot=None)
-    messages.success(request, 'All exams of selected timetables have been reset correctly.')
-
-def reset_make_schedule(modeladmin, request, queryset):
-    for timetable in queryset:
-        timetable.exams.all().update(room=None)
-        timetable.exams.all().update(timeslot=None)
-
-    make_schedule(modeladmin, request, queryset)
+    make_schedule(modeladmin, request, timetable)
 
 class TimetableAdmin(admin.ModelAdmin):
     form = forms.TimetableForm
-    actions = [make_schedule, reset_schedule, reset_make_schedule]
+
+    def save_model(self, request, obj, form, change):
+        if not request.POST.has_key('_continue'):
+            request.POST['_continue'] = ''
+            reset_make_schedule(self, request, obj)
+        else:
+            obj.save()
 
     def has_add_permission(self, request):
         return False
 
-make_schedule.short_description  = "Schedule the selected timetable(s)"
-reset_schedule.short_description = "Reset schedule informations for the selected timetable(s)"
-reset_make_schedule.short_description = "Reset and schedule the selected timetable(s)"
-
 admin.site.register(models.Timetable, TimetableAdmin)
-
 admin.site.register(models.Unavailability, UnavailabilityAdmin)
 admin.site.register(models.Student, StudentAdmin)
 # ... and, since we're not using Django's built-in permissions,

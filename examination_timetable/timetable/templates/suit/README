@@ -1,0 +1,13 @@
+README
+======
+
+After installed django and djang-suit, you need to use the two templates in
+the current directory to have the correct display: base.html and menu.html.
+
+base.html must be copied in the suit directory at the position
+[...]/suit/admin/base.html and replace the current one.
+
+menu.html must be copied in the suit directory at the position
+[...]/suit/suit/menu.html and replace the current one.
+
+Then, the design of the django admin display is correctly setted.
